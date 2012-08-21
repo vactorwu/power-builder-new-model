@@ -1,0 +1,39 @@
+HA$PBExportHeader$d_cuenta_lista.srd
+release 8;
+datawindow(units=0 timer_interval=0 color=67108864 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(3) update=yes updatewhereclause=yes key=yes name=codigo dbname="linea.codlinea" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=descripcion dbname="linea.descripcion" )
+ column=(type=datetime update=yes updatewhereclause=yes name=fecregistro dbname="linea.fecregistro" )
+ column=(type=long update=yes updatewhereclause=yes name=estado dbname="linea.estado" initial="1" values="	1/	0" )
+ column=(type=char(2) update=yes updatewhereclause=yes key=yes name=empresa dbname="linea.codempresa" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"linea~" ) COLUMN(NAME=~"linea.codlinea~") COLUMN(NAME=~"linea.descripcion~") COLUMN(NAME=~"linea.fecregistro~") COLUMN(NAME=~"linea.estado~") COLUMN(NAME=~"linea.codempresa~")WHERE(    EXP1 =~"linea.codempresa~"   OP =~"=~"    EXP2 =~":Empresa~" ) ) ARG(NAME = ~"Empresa~" TYPE = string) " update="linea" updatewhere=1 updatekeyinplace=yes arguments=(("Empresa", string)) )
+text(band=header alignment="2" text="Activo" border="6" color="33554432" x="1280" y="8" height="64" width="201" html.valueishtml="0"  name=estado_t visible="1"  font.face="Microsoft Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Registro" border="6" color="33554432" x="960" y="8" height="64" width="311" html.valueishtml="0"  name=fecregistro_t visible="1"  font.face="Microsoft Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Descripci$$HEX1$$f300$$ENDHEX$$n de Linea" border="6" color="33554432" x="329" y="8" height="64" width="622" html.valueishtml="0"  name=descripcion_t visible="1"  font.face="Microsoft Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="C$$HEX1$$f300$$ENDHEX$$digo" border="6" color="33554432" x="110" y="8" height="64" width="210" html.valueishtml="0"  name=codigo_t visible="1"  font.face="Microsoft Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+bitmap(band=header filename="DWBlank.bmp" x="9" y="0" height="84" width="91" border="6"  name=p_1 visible="1" )
+compute(band=detail alignment="0" expression="Bitmap(
+If( CurrentRow()= GetRow(),
+	If(IsRowNew(),
+		If(IsRowModified(),~"DWCurrentNewModified.bmp~",~"DWCurrentNew.bmp~")
+	,	
+		If(IsRowModified(),~"DWCurrentModified.bmp~",~"DWCurrent.bmp~")
+	)
+,
+	If(IsRowNew(),
+		If(IsRowModified(),~"DWNewModified.bmp~",~"DWNewRow.bmp~")
+	,	
+	If(IsRowModified(),~"DWModified.bmp~",~"DWBlank.bmp~")
+	)
+)
+)"border="0" color="33554432" x="9" y="0" height="76" width="91" format="[GENERAL]" html.valueishtml="0"  name=none visible="1"  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="33554432~tif(  estado = 0,rgb(255,0,0),rgb(0,0,0 ))" x="329" y="4" height="60" width="622" format="[general]" html.valueishtml="0" protect="0~t1"  name=descripcion  tag="DESCRIPCION DE LA LINEA" visible="1" edit.limit=50 edit.case=any edit.autoselect=yes edit.imemode=0  font.face="Microsoft Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="16777215~tIf( estado = 0,rgb(192,224,255),rgb(255,255,255))" )
+column(band=detail id=3 alignment="2" tabsequence=30 border="5" color="33554432~tif(  estado = 0,rgb(255,0,0),rgb(0,0,0 ))" x="960" y="4" height="60" width="311" format="dd/mm/yyyy" html.valueishtml="0" protect="0~t1"  name=fecregistro visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.imemode=0  font.face="Microsoft Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="16777215~tIf( estado = 0,rgb(192,224,255),rgb(255,255,255))" )
+column(band=detail id=4 alignment="2" tabsequence=40 border="5" color="33554432~tif(  estado = 0,rgb(255,0,0),rgb(0,0,0 ))" x="1280" y="4" height="64" width="201" format="[general]" html.valueishtml="0" protect="0~t1"  name=estado  tag="ESTADO DE LA LINEA" visible="1" checkbox.text="" checkbox.on="1" checkbox.off="0" checkbox.scale=yes checkbox.threed=yes  font.face="Microsoft Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="536870912~tIf( estado = 0,rgb(192,224,255),uf_colorbotonl())" )
+column(band=detail id=1 alignment="2" tabsequence=10 border="5" color="33554432~tif(  estado = 0,rgb(255,0,0),rgb(0,0,0 ))" x="110" y="4" height="60" width="210" format="[general]" html.valueishtml="0" protect="0~t1"  name=codigo  tag="CODIGO DE LINEA" visible="1" edit.limit=3 edit.case=any edit.autoselect=yes edit.imemode=0  font.face="Microsoft Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="16777215~tIf( estado = 0,rgb(192,224,255),rgb(255,255,255))" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" netscapelayers="0" )

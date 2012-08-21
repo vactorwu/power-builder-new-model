@@ -1,0 +1,80 @@
+HA$PBExportHeader$d_eliminar1.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=67108864 processing=1 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no grid.lines=0 selected.mouse=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=idlinea dbname="LINEA.IDLINEA" )
+ column=(type=char(10) updatewhereclause=yes name=codlinea dbname="LINEA.CODLINEA" )
+ column=(type=decimal(0) updatewhereclause=yes name=idempresa dbname="LINEA.IDEMPRESA" )
+ column=(type=decimal(0) updatewhereclause=yes name=idsublinea dbname="LINEA.IDSUBLINEA" )
+ column=(type=char(10) updatewhereclause=yes name=codsublinea dbname="LINEA.CODSUBLINEA" )
+ column=(type=char(120) updatewhereclause=yes name=nombre dbname="LINEA.NOMBRE" )
+ column=(type=decimal(0) updatewhereclause=yes name=estado dbname="LINEA.ESTADO" )
+ column=(type=datetime updatewhereclause=yes name=fecharegistro dbname="LINEA.FECHAREGISTRO" )
+ column=(type=char(128) updatewhereclause=yes name=estacionregistro dbname="LINEA.ESTACIONREGISTRO" )
+ column=(type=char(30) updatewhereclause=yes name=usuarioregistro dbname="LINEA.USUARIOREGISTRO" )
+ column=(type=datetime updatewhereclause=yes name=fechamodifico dbname="LINEA.FECHAMODIFICO" )
+ column=(type=char(128) updatewhereclause=yes name=estacionmodifico dbname="LINEA.ESTACIONMODIFICO" )
+ column=(type=char(30) updatewhereclause=yes name=usuariomodifico dbname="LINEA.USUARIOMODIFICO" )
+ column=(type=datetime updatewhereclause=yes name=fechaelimino dbname="LINEA.FECHAELIMINO" )
+ column=(type=char(128) updatewhereclause=yes name=estacionelimino dbname="LINEA.ESTACIONELIMINO" )
+ column=(type=char(30) updatewhereclause=yes name=usuarioelimino dbname="LINEA.USUARIOELIMINO" )
+ column=(type=decimal(0) updatewhereclause=yes name=eliminado dbname="LINEA.ELIMINADO" )
+ retrieve="
+  SELECT SISTEM.LINEA.IDLINEA,   
+         SISTEM.LINEA.CODLINEA,   
+         SISTEM.LINEA.IDEMPRESA,   
+         SISTEM.LINEA.IDSUBLINEA,   
+         SISTEM.LINEA.CODSUBLINEA,   
+         SISTEM.LINEA.NOMBRE,   
+         SISTEM.LINEA.ESTADO,   
+         SISTEM.LINEA.FECHAREGISTRO,   
+         SISTEM.LINEA.ESTACIONREGISTRO,   
+         SISTEM.LINEA.USUARIOREGISTRO,   
+         SISTEM.LINEA.FECHAMODIFICO,   
+         SISTEM.LINEA.ESTACIONMODIFICO,   
+         SISTEM.LINEA.USUARIOMODIFICO,   
+         SISTEM.LINEA.FECHAELIMINO,   
+         SISTEM.LINEA.ESTACIONELIMINO,   
+         SISTEM.LINEA.USUARIOELIMINO,   
+         SISTEM.LINEA.ELIMINADO  
+    FROM SISTEM.LINEA  
+   WHERE ( SISTEM.LINEA.IDEMPRESA = :IdEmpresa ) AND  
+         ( SISTEM.LINEA.IDSUBLINEA = COALESCE(:IdSubLinea, IdSubLinea)  ) AND  
+         SISTEM.LINEA.ELIMINADO = 0               
+" arguments=(("IdEmpresa", number),("IdSubLinea", number)) )
+compute(band=header alignment="0" expression="Bitmap(~"DWBlank.gif~")"border="6" color="33554432" x="0" y="0" height="76" width="87" format="[GENERAL]" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Verdana" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=header alignment="2" text="C$$HEX1$$f300$$ENDHEX$$digo" border="6" color="33554432" x="91" y="0" height="76" width="302" html.valueishtml="0"  name=codlinea_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Nombre" border="6" color="33554432" x="411" y="0" height="76" width="1778" html.valueishtml="0"  name=nombre_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Estado" border="6" color="33554432" x="2203" y="0" height="76" width="325" html.valueishtml="0"  name=estado_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="Bitmap(
+If( CurrentRow()= GetRow(),
+	If(IsRowNew(),
+		If(IsRowModified(),~"DWCurrentNewModified.gif~",~"DWCurrentNew.gif~")
+	,	
+		If(IsRowModified(),~"DWCurrentModified.gif~",~"DWCurrent.gif~")
+	)
+,
+	If(IsRowNew(),
+		If(IsRowModified(),~"DWNewModified.gif~",~"DWNewRow.gif~")
+	,	
+	If(IsRowModified(),~"DWModified.gif~",~"DWBlank.gif~")
+	)
+)
+)"border="0" color="33554432~tIF(  estado = 0,rgb(255,0,0),RGB(0,0,0 ))" x="0" y="0" height="72" width="87" format="[GENERAL]" html.valueishtml="0"  name=none visible="1"  font.face="Verdana" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="1073741824~tIF(  Mod(GetRow(),2) = 0,RGB(192,224,255),RGB(255,255,255))" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="33554432~tIF(  estado = 0,rgb(255,0,0),RGB(0,0,0 ))" x="91" y="0" height="72" width="302" format="[general]" html.valueishtml="0"  name=codlinea  tag="C$$HEX1$$f300$$ENDHEX$$digo" visible="1" edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="16777215~tIF(  Mod(GetRow(),2) = 0,RGB(192,224,255),RGB(255,255,255))" )
+column(band=detail id=7 alignment="2" tabsequence=32766 border="0" color="33554432~tIF(  estado = 0,rgb(255,0,0),RGB(0,0,0 ))" x="2203" y="0" height="72" width="325" format="[general]" html.valueishtml="0"  name=estado  tag="Estado" visible="1" edit.name="ESTADO" ddlb.limit=0 ddlb.allowedit=no ddlb.case=upper  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="16777215~tIF(  Mod(GetRow(),2) = 0,RGB(192,224,255),RGB(255,255,255))" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="33554432~tIF(  estado = 0,rgb(255,0,0),RGB(0,0,0 ))" x="411" y="0" height="72" width="1778" format="[general]" html.valueishtml="0"  name=nombre  tag="Nombre" visible="1" edit.limit=64 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="16777215~tIF(  Mod(GetRow(),2) = 0,RGB(192,224,255),RGB(255,255,255))" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

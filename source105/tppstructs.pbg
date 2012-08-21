@@ -1,0 +1,18 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "tppstructs.pbl" "";
+@end;
+@begin Objects
+ "s_select.srs" "tppstructs.pbl";
+ "s_security.srs" "tppstructs.pbl";
+ "s_parms.srs" "tppstructs.pbl";
+ "hostent.srs" "tppstructs.pbl";
+ "s_rect.srs" "tppstructs.pbl";
+ "s_application.srs" "tppstructs.pbl";
+ "sockaddr_in.srs" "tppstructs.pbl";
+ "us_ddkeysrch.srs" "tppstructs.pbl";
+ "s_pointapi.srs" "tppstructs.pbl";
+ "s_sqlca.srs" "tppstructs.pbl";
+ "s_printers.srs" "tppstructs.pbl";
+ "wsadata.srs" "tppstructs.pbl";
+@end;

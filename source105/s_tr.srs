@@ -1,0 +1,55 @@
+HA$PBExportHeader$s_tr.srs
+global type s_tr from structure
+
+String is_Profile
+String is_DBMS
+boolean ib_AutoCommit
+String is_DBParm
+String is_DBPass
+String is_Lock
+String is_LogID
+String is_LogPass
+String is_ServerName
+
+//Connection
+String is_NameSpace
+String is_Provider
+String is_DataSource
+String is_UserId
+String is_Password
+String is_Database
+String is_AdoRelease
+String is_TrustedConnection
+String is_FileName
+String is_DataLink
+String is_ProviderString
+
+//System
+String is_PBCatalogOwner
+String is_DefaultProcOwner
+String is_SPCache
+String is_GenerateTrace
+String is_CommitOnDisconnect
+String is_AutoCommit
+String is_TimeOut
+String is_CommandTimeout
+String is_DbConfigSection
+
+//Transaction
+String is_Isolation
+String is_Disablebind
+String is_StaticBind
+String is_NCharBind
+String is_PBMaxBlobSize
+
+//Syntax
+String is_DelimitIdentifier
+String is_TrimSpaces
+String is_IdentifierQuoteChar
+String is_DateFormat
+String is_DateTimeFormat
+String is_TimeFormat
+String is_DecimalSeparator
+String is_OJSyntax
+end type
+

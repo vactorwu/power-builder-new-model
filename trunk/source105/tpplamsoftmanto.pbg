@@ -1,0 +1,39 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "tpplamsoftmanto.pbl" "";
+@end;
+@begin Objects
+ "w_mantolineacreditotipo.srw" "tpplamsoftmanto.pbl";
+ "d_documento_manto_bak.srd" "tpplamsoftmanto.pbl";
+ "d_producto_manto_bak.srd" "tpplamsoftmanto.pbl";
+ "d_parametro_lista.srd" "tpplamsoftmanto.pbl";
+ "d_proveedor_lista.srd" "tpplamsoftmanto.pbl";
+ "d_proveedor_manto.srd" "tpplamsoftmanto.pbl";
+ "d_movimientotipo_lista.srd" "tpplamsoftmanto.pbl";
+ "d_cliente_lista.srd" "tpplamsoftmanto.pbl";
+ "d_usuarios_lista.srd" "tpplamsoftmanto.pbl";
+ "d_vendedor_lista.srd" "tpplamsoftmanto.pbl";
+ "d_movimientotipo_manto.srd" "tpplamsoftmanto.pbl";
+ "d_cliente_manto.srd" "tpplamsoftmanto.pbl";
+ "d_fraccion_manto.srd" "tpplamsoftmanto.pbl";
+ "d_usuarios_manto.srd" "tpplamsoftmanto.pbl";
+ "d_vendedor_manto.srd" "tpplamsoftmanto.pbl";
+ "w_mantofraccion.srw" "tpplamsoftmanto.pbl";
+ "d_tarjetatipo_lista.srd" "tpplamsoftmanto.pbl";
+ "d_tarjetatipo_manto.srd" "tpplamsoftmanto.pbl";
+ "w_mantomovimientotipo.srw" "tpplamsoftmanto.pbl";
+ "w_mantotarjetatipo.srw" "tpplamsoftmanto.pbl";
+ "w_mantocaja.srw" "tpplamsoftmanto.pbl";
+ "d_cargo_dddw.srd" "tpplamsoftmanto.pbl";
+ "d_cargo_lista.srd" "tpplamsoftmanto.pbl";
+ "d_cuenta_lista.srd" "tpplamsoftmanto.pbl";
+ "d_cargo_manto.srd" "tpplamsoftmanto.pbl";
+ "w_mantoproducto.srw" "tpplamsoftmanto.pbl";
+ "d_caja_lista.srd" "tpplamsoftmanto.pbl";
+ "d_caja_manto.srd" "tpplamsoftmanto.pbl";
+ "w_mantodocumento.srw" "tpplamsoftmanto.pbl";
+ "w_mantocargo.srw" "tpplamsoftmanto.pbl";
+ "d_lineacreditotipo_lista.srd" "tpplamsoftmanto.pbl";
+ "d_lineacreditotipo_manto.srd" "tpplamsoftmanto.pbl";
+ "w_mantonew.srw" "tpplamsoftmanto.pbl";
+@end;

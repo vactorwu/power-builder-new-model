@@ -1,0 +1,43 @@
+HA$PBExportHeader$d_dddw_ubigeo.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=67108864 processing=1 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no grid.lines=0 selected.mouse=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=20 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(6) updatewhereclause=yes name=idubigeo dbname="IdUbigeo" )
+ column=(type=char(2) updatewhereclause=yes name=coddepartamento dbname="CodDepartamento" )
+ column=(type=char(2) updatewhereclause=yes name=codprovincia dbname="CodProvincia" )
+ column=(type=char(2) updatewhereclause=yes name=coddistrito dbname="CodDistrito" )
+ column=(type=char(64) updatewhereclause=yes name=nombre dbname="Nombre" )
+ column=(type=number updatewhereclause=yes name=estado dbname="Estado" )
+ procedure="1 execute SISTEM.Usp_Ubigeo_Sel;1 @Departamento = :Departamento, @Provincia = :Provincia , @Distrito = :Distrito " filter=" coddepartamento <>'00'"arguments=(("Departamento", string),("Provincia", string),("Distrito", string)) )
+compute(band=header alignment="0" expression="Bitmap(~"DWBlank.gif~")"border="6" color="33554432" x="5" y="4" height="72" width="91" format="[GENERAL]" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=header alignment="2" text="Nombre" border="6" color="33554432" x="105" y="8" height="68" width="1143" html.valueishtml="0"  name=nombre_t visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="Bitmap(
+If( CurrentRow()= GetRow(),
+	If(IsRowNew(),
+		If(IsRowModified(),~"DWCurrentNewModified.gif~",~"DWCurrentNew.gif~")
+	,	
+		If(IsRowModified(),~"DWCurrentModified.gif~",~"DWCurrent.gif~")
+	)
+,
+	If(IsRowNew(),
+		If(IsRowModified(),~"DWNewModified.gif~",~"DWNewRow.gif~")
+	,	
+	If(IsRowModified(),~"DWModified.gif~",~"DWBlank.gif~")
+	)
+)
+)"border="0" color="33554432~tIF(  estado = 0,rgb(255,0,0),RGB(0,0,0 ))" x="9" y="0" height="68" width="87" format="[GENERAL]" html.valueishtml="0"  name=none visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="1073741824~tIF(  Mod(GetRow(),2) = 0,RGB(192,224,255),RGB(255,255,255))" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="33554432~tIF(  estado = 0,rgb(255,0,0),RGB(0,0,0 ))" x="105" y="0" height="72" width="1143" format="[general]" html.valueishtml="0"  name=nombre  tag="Nombre" visible="1" edit.limit=64 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="16777215~tIF(  Mod(GetRow(),2) = 0,RGB(192,224,255),RGB(255,255,255))" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

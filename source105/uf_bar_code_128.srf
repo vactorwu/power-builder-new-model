@@ -1,0 +1,178 @@
+HA$PBExportHeader$uf_bar_code_128.srf
+global type uf_bar_code_128 from function_object
+end type
+
+forward prototypes
+global function any uf_bar_code_128 (string as_input)
+end prototypes
+
+global function any uf_bar_code_128 (string as_input);// PowerBuilder Source Code for IDAutomation.com Code 128 Barcode Fonts
+// Copyright $$HEX2$$a9002000$$ENDHEX$$2002, IDAutomation.com, Inc. All rights reserved.
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+//      NOTE: The following code is only an example that was provided by a client.
+//      IDAutomation.com, Inc. does not guarantee, support or troubleshoot
+//      PowerBuilder source code.
+//
+//	To use this function. The developer needs to create an external function.
+//	Set function arguments and paste all the codes below.
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+//	This function will convert input to a data string formatted for our 
+//      Code 128 Barcode Fonts. This is a code 128 "auto" function.
+//
+//      This barcode font is available at:
+//      http://www.bizfonts.com/code128fonts/
+//	Download a demo version from:
+//      http://www.advancemeants.com/code128fonts/download.htm
+//
+//      You may incorporate our Source Code in your application
+//      only if you own a valid Multi-user or Corporate Distribution
+//      license from IDAutomation.com, Inc. for the associated font and
+//      the copyright notices are not removed from the source code.
+//
+//	Arguments:
+//	Input(Pass By value)
+//				Datatype	String
+//				Name		as_input
+//
+//	Output(Pass By reference)
+//				Datatype	String
+//				Name		as_ouptut
+//
+//    Copyright, IDAutomation.com, Inc. 2002. All rights reserved.
+///////////////////////////////////////////////////////////////////////////////////
+
+string	ls_c128_starta
+string	ls_c128_startb
+string	ls_c128_startc
+string	ls_c128_start
+string	ls_c128_stop
+Long		ll_len,i
+Integer	li_curr_char
+String	ls_curr_char
+string	ls_curr_encoding
+Long		ll_curr_value
+Long		ll_weighted_tot
+string	ls_datatoencode
+Integer	li_check_digit
+String	ls_c128_checkdigit
+string	ls_datatoprint
+string   as_output
+
+as_input	=	trim(as_input)
+
+If Isnull(as_input) OR as_input = '' Then
+	Return "Nulo"
+End IF
+
+ls_c128_starta = char(203)
+ls_c128_startb = char(204)
+ls_c128_startc = char(205)
+ls_c128_stop   = char(206)
+
+//	Here we select character set A, B or C for the START character
+ll_len	=	len(as_input)
+li_curr_char = Asc(Mid(as_input, 1, 1))
+If	li_curr_char < 32 Then	ls_c128_start = ls_c128_starta
+If li_curr_char > 31 AND li_curr_char < 127 Then ls_c128_start = ls_c128_startb
+If ((ll_len > 4) AND Isnumber(mid(as_input,1,4))) Then ls_c128_start = ls_c128_startc
+
+// 202 is the FNC1, with this Start C is mandatory
+If li_curr_char = 202 Then ls_c128_start = ls_c128_startc
+If ls_c128_start = char(203) Then ls_curr_encoding = "A"
+If ls_c128_start = char(204) Then ls_curr_encoding = "B"
+If ls_c128_start = char(205) Then ls_curr_encoding = "C"
+
+For i = 1 to ll_len
+	//	check for FNC1 in any set	
+	If ((Mid(as_input,i,1)) = Char(202)) Then
+		ls_datatoencode = ls_datatoencode + char(202)
+	//	check for switching to character set C	
+	ElseIf ((i < ll_len - 2) AND (Isnumber(mid(as_input,i,1))) and (isnumber(mid(as_input,i + 1,1))) AND (Isnumber(Mid(as_input,i,4)))) OR ((i < ll_len) AND (Isnumber(mid(as_input,i,1))) AND (Isnumber(Mid(as_input,i + 1,1))) And (ls_curr_encoding = "C")) Then
+		//	switch to set C if not already in it		
+		If ls_curr_encoding <> "C" Then ls_datatoencode = ls_datatoencode + char(199)
+		ls_curr_encoding = "C"
+		ls_curr_char = (Mid(as_input,i,2))
+		ll_curr_value = Long(ls_curr_char)
+		//	set the CurrentValue to the number of String CurrentChar		
+		If (ll_curr_value < 95 AND ll_curr_value > 0 ) Then ls_datatoencode = ls_datatoencode + char(ll_curr_value + 32)
+		If ll_curr_value > 94 Then ls_datatoencode = ls_datatoencode + char(ll_curr_value + 100)
+		If ll_curr_value = 0 Then ls_datatoencode = ls_datatoencode + char(194)
+		i = i + 1
+	//	check for switching to character set A
+	ElseIf (i <= ll_len) AND ((ASC(Mid(as_input,i,1)) < 31) OR ((ls_curr_encoding = "A") AND (ASC(Mid(as_input,i,1)) > 32 AND (asc(mid(as_input,i,1))) < 96))) Then
+		//	switch to set A if not already in it	
+		If ls_curr_encoding <> "A" Then ls_datatoencode = ls_datatoencode + char(201)
+		ls_curr_encoding = "A"
+		//	Get the ASCII value of the next character
+		li_curr_char = (asc(mid(as_input,i,1)))
+		If li_curr_char = 32 Then
+			ls_datatoencode = ls_datatoencode + char(194)
+		ElseIf li_curr_char < 32 then
+			ls_datatoencode = ls_datatoencode + char(li_curr_char + 96)
+		ElseIf li_curr_char > 32 Then
+			ls_datatoencode = ls_datatoencode + char(li_curr_char)
+		End IF
+	//	check for switching to character set B
+	ElseIf (i <= ll_len) AND ((ASC(mid(as_input,i,1))) > 31 AND (ASC(mid(as_input,i,1))) < 127) Then		
+		//	switch to set B if not already in it
+		If	ls_curr_encoding <> "B" Then ls_datatoencode = ls_datatoencode + char(200)
+		ls_curr_encoding = "B"
+		//	Get the ASCII value of the next character
+		li_curr_char = (asc(mid(as_input,i,1)))
+		If li_curr_char = 32 Then
+			ls_datatoencode = ls_datatoencode + char(194)
+		Else
+			ls_datatoencode = ls_datatoencode + char(li_curr_char)
+		End IF
+	End IF		
+Next
+
+//	***** Calculate Modulo 103 Check Digit *******
+
+//	Set WeightedTotal to the value of the start character
+ll_weighted_tot = (ASC(ls_c128_start) - 100)
+ll_len = Len(ls_datatoencode)
+
+For i = 1 to ll_len
+	// Get the ASCII value of each character
+	li_curr_char = (asc(mid(ls_datatoencode,i,1)))
+	// Get the Code 128 value of CurrentChar according to chart
+	If li_curr_char < 135 Then ll_curr_value = li_curr_char - 32
+	If li_curr_char > 134 Then ll_curr_value = li_curr_char - 100
+	If li_curr_char = 194 Then ll_curr_value = 0
+	// multiply by the weighting character
+	ll_curr_value = ll_curr_value * i
+	// add the values together
+	ll_weighted_tot = ll_weighted_tot + ll_curr_value
+Next
+//	divide the WeightedTotal by 103 and get the remainder, this is the CheckDigitValue
+li_check_digit = Mod(ll_weighted_tot,103)
+// Now that we have the CheckDigitValue, find the corresponding ASCII character from the table
+If li_check_digit < 95 AND li_check_digit > 0 Then ls_c128_checkdigit = char(li_check_digit + 32)
+If li_check_digit > 94 Then ls_c128_checkdigit = char(li_check_digit + 32)
+If li_check_digit = 0 Then ls_c128_checkdigit = char(194)
+//	Check for spaces or "00" and print ASCII 194 instead
+//	place changes in data to print
+ll_len = Len(ls_datatoencode)
+For i = 1 to ll_len
+	ls_curr_char = mid(ls_datatoencode,i,1)
+	If ls_curr_char = " " Then ls_curr_char = char(194)
+	ls_datatoprint = ls_datatoprint + ls_curr_char
+Next
+
+// Get Printable String
+as_output = ls_c128_start+ls_datatoprint+ls_c128_checkdigit+ls_c128_stop+ " "
+
+Return as_output
+
+// PowerBuilder Source Code for IDAutomation.com Code 128 Barcode Fonts
+// Copyright $$HEX2$$a9002000$$ENDHEX$$IDAutomation.com, Inc. 2002, All rights reserved.
+//http://www.bizfonts.com/sourcecode/powerbuilder.txt
+
+
+end function
+

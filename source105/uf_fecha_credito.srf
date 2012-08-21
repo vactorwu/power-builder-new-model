@@ -1,0 +1,60 @@
+HA$PBExportHeader$uf_fecha_credito.srf
+global type uf_fecha_credito from function_object
+end type
+
+forward prototypes
+global function datetime uf_fecha_credito (datetime adt_fecha, string as_tipo)
+end prototypes
+
+global function datetime uf_fecha_credito (datetime adt_fecha, string as_tipo);Int li_dia, li_mes, li_anio
+Date ld_Fecha
+DateTime ldt_Fecha
+
+ld_Fecha = Date(adt_fecha)
+
+ li_dia		= Day(ld_Fecha)
+ li_mes	= Month(ld_Fecha)
+ li_anio	= Year(ld_Fecha)
+ 
+
+choose case as_Tipo
+	case "1"
+			ld_Fecha = RelativeDate(ld_Fecha , 30)
+	case "Q"
+			ld_Fecha = RelativeDate(ld_Fecha , 15)			
+	case "F"
+		choose case li_mes
+			case 1 to 11
+				ld_Fecha = RelativeDate(Date(li_anio,li_mes + 1 , 1) , -1)
+			case 12
+				ld_Fecha = RelativeDate(Date(li_anio+1, 1 , 1) , -1)
+		end choose		
+	case "K"
+		choose case li_mes
+			case 1 to 11
+				If li_dia>=15 Then
+					ld_Fecha = Date(li_anio,li_mes + 1 , 15) 
+				Else
+					ld_Fecha = Date(li_anio,li_mes , 15) 	
+				ENd If
+				
+			case 12
+				ld_Fecha = RelativeDate(Date(li_anio+1,li_mes + 1 , 1) , -1)
+				If li_dia>=15 Then
+					ld_Fecha = Date(li_anio+1, 1 , 15) 
+				Else
+					ld_Fecha = Date(li_anio,li_mes , 15) 	
+				ENd If				
+		end choose				
+
+end choose
+
+
+
+
+
+ldt_Fecha = DateTime(ld_Fecha)
+
+Return ldt_Fecha
+end function
+

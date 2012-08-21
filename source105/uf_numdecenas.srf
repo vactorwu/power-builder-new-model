@@ -1,0 +1,97 @@
+HA$PBExportHeader$uf_numdecenas.srf
+global type uf_numdecenas from function_object
+end type
+
+forward prototypes
+global function string uf_numdecenas (string numero)
+end prototypes
+
+global function string uf_numdecenas (string numero);string unidad
+unidad = uf_numunidades(integer(right(numero,1)))
+CHOOSE CASE integer(left(numero,1))
+CASE 0
+  return unidad
+CASE 1
+  CHOOSE CASE numero
+   CASE '10'
+    return "diez"
+   CASE '11'
+    return 'once'
+   CASE '12'
+    return 'doce'
+   CASE '13'
+    return 'trece'
+   CASE '14'
+    return 'catorce'
+   CASE '15'
+    return 'quince'
+   CASE '16'
+    return 'dieciseis'
+   CASE '17'
+    return 'diecisiete'
+   CASE '18'
+    return 'dieciocho'
+   CASE '19'
+    return 'diecinueve'
+  END CHOOSE 
+CASE 2
+  CHOOSE CASE integer(right(numero,1))
+   CASE 0
+    return 'veinte'
+   CASE ELSE
+    return 'veinti'+unidad
+  END CHOOSE
+
+CASE 3
+  CHOOSE CASE integer(right(numero,1))
+   CASE 0
+    return 'treinta'
+   CASE ELSE
+    return 'treinta y '+unidad
+  END CHOOSE
+CASE 4
+  CHOOSE CASE integer(right(numero,1))
+   CASE 0
+    return 'cuarenta'
+   CASE ELSE
+    return 'cuarenta y '+unidad
+  END CHOOSE
+CASE 5
+  CHOOSE CASE integer(right(numero,1))
+   CASE 0
+    return 'cincuenta'
+   CASE ELSE
+    return 'cincuenta y '+unidad
+  END CHOOSE
+CASE 6
+  CHOOSE CASE integer(right(numero,1))
+   CASE 0
+    return 'sesenta'
+   CASE ELSE
+    return 'sesenta y '+unidad
+  END CHOOSE
+CASE 7
+  CHOOSE CASE integer(right(numero,1))
+   CASE 0
+    return 'setenta'
+   CASE ELSE
+    return 'setenta y '+unidad
+  END CHOOSE
+CASE 8
+  CHOOSE CASE integer(right(numero,1))
+   CASE 0
+    return 'ochenta'
+   CASE ELSE
+    return 'ochenta y '+unidad
+  END CHOOSE
+CASE 9
+  CHOOSE CASE integer(right(numero,1))
+   CASE 0
+    return 'noventa'
+   CASE ELSE
+    return 'noventa y '+unidad
+  END CHOOSE
+end choose
+
+end function
+

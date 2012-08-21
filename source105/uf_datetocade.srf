@@ -1,0 +1,20 @@
+HA$PBExportHeader$uf_datetocade.srf
+global type uf_datetocade from function_object
+end type
+
+forward prototypes
+global function string uf_datetocade (datetime as_date)
+end prototypes
+
+global function string uf_datetocade (datetime as_date);String ls_dia,ls_mes,ls_year,ls_Fecha
+
+ls_year = String(year( date(as_date) ))
+ls_mes  = String(Month( date(as_date) ))
+ls_mes = Mid('00',1, 2 - len(ls_mes)) + String(Integer(ls_mes))
+
+ls_dia  = String(day( date(as_date) ))
+ls_dia = Mid('00',1, 2 - len(ls_dia)) + String(Integer(ls_dia))
+ls_fecha = ls_year+ls_mes+ls_dia
+Return ls_fecha
+end function
+

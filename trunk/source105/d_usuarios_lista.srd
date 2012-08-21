@@ -1,0 +1,41 @@
+HA$PBExportHeader$d_usuarios_lista.srd
+release 8;
+datawindow(units=0 timer_interval=0 color=67108864 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(7) update=yes updatewhereclause=yes key=yes name=codigo dbname="entidad.codentidad" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=nombre dbname="entidad.nombre" )
+ column=(type=long update=yes updatewhereclause=yes name=cliente dbname="entidad.cliente" initial="0" values="	1/	0" )
+ column=(type=long update=yes updatewhereclause=yes name=proveedor dbname="entidad.proveedor" initial="0" values="	1/	0" )
+ column=(type=long update=yes updatewhereclause=yes name=empleado dbname="entidad.empleado" initial="0" values="	1/	0" )
+ column=(type=datetime update=yes updatewhereclause=yes name=fecregistro dbname="entidad.fecregistro" )
+ column=(type=long update=yes updatewhereclause=yes name=estado dbname="entidad.estado" initial="1" values="	1/	0" )
+ column=(type=char(2) update=yes updatewhereclause=yes key=yes name=codempresa dbname="entidad.codempresa" )
+ column=(type=char(15) updatewhereclause=yes name=telefono dbname="entidad.telefono" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"entidad~" ) COLUMN(NAME=~"entidad.codentidad~") COLUMN(NAME=~"entidad.nombre~") COLUMN(NAME=~"entidad.cliente~") COLUMN(NAME=~"entidad.proveedor~") COLUMN(NAME=~"entidad.empleado~") COLUMN(NAME=~"entidad.fecregistro~") COLUMN(NAME=~"entidad.estado~") COLUMN(NAME=~"entidad.codempresa~") COLUMN(NAME=~"entidad.telefono~")WHERE(    EXP1 =~"entidad.codempresa~"   OP =~"=~"    EXP2 =~":Empresa~"    LOGIC =~"and~" ) WHERE(    EXP1 =~"entidad.empleado~"   OP =~"=~"    EXP2 =~"3~" ) ) ARG(NAME = ~"Empresa~" TYPE = string) " update="entidad" updatewhere=1 updatekeyinplace=yes arguments=(("Empresa", string)) )
+bitmap(band=header filename="DWBlank.bmp" x="5" y="0" height="84" width="96" border="6"  name=p_1 visible="1" )
+text(band=header alignment="2" text="C$$HEX1$$f300$$ENDHEX$$digo" border="6" color="33554432" x="114" y="8" height="64" width="247" html.valueishtml="0"  name=codigo_t visible="1"  font.face="Microsoft Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="Nombre" border="6" color="33554432" x="370" y="8" height="64" width="1010" html.valueishtml="0"  name=nombre_t visible="1"  font.face="Microsoft Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="Tel$$HEX1$$e900$$ENDHEX$$fono" border="6" color="33554432" x="1390" y="12" height="60" width="334" html.valueishtml="0"  name=telefono_t visible="1"  font.face="Microsoft Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+compute(band=detail alignment="0" expression="Bitmap(
+If( CurrentRow()= GetRow(),
+	If(IsRowNew(),
+		If(IsRowModified(),~"DWCurrentNewModified.bmp~",~"DWCurrentNew.bmp~")
+	,	
+		If(IsRowModified(),~"DWCurrentModified.bmp~",~"DWCurrent.bmp~")
+	)
+,
+	If(IsRowNew(),
+		If(IsRowModified(),~"DWNewModified.bmp~",~"DWNewRow.bmp~")
+	,	
+	If(IsRowModified(),~"DWModified.bmp~",~"DWBlank.bmp~")
+	)
+)
+)"border="0" color="33554432~tif(  estado = 0,rgb(255,0,0),rgb(0,0,0 ))" x="9" y="0" height="76" width="96" format="[GENERAL]" html.valueishtml="0"  name=none visible="1"  font.face="Microsoft Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="1073741824~tIf( estado = 0,rgb(192,224,255),rgb(255,255,255))" )
+column(band=detail id=1 alignment="2" tabsequence=10 border="5" color="33554432~tif(  estado = 0,rgb(255,0,0),rgb(0,0,0 ))" x="114" y="4" height="60" width="247" format="[general]" html.valueishtml="0" protect="0~t1"  name=codigo visible="1" edit.limit=7 edit.case=upper edit.autoselect=yes edit.imemode=0  font.face="Microsoft Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="16777215~tIf( estado = 0,rgb(192,224,255),rgb(255,255,255))" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="33554432~tif(  estado = 0,rgb(255,0,0),rgb(0,0,0 ))" x="370" y="4" height="60" width="1010" format="[general]" html.valueishtml="0" protect="0~t1"  name=nombre visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.imemode=0  font.face="Microsoft Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="16777215~tIf( estado = 0,rgb(192,224,255),rgb(255,255,255))" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="5" color="33554432" x="1390" y="4" height="60" width="334" format="[general]" html.valueishtml="0"  name=telefono visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.imemode=0  font.face="Microsoft Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" netscapelayers="0" )

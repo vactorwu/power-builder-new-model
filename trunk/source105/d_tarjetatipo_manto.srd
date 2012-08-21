@@ -1,0 +1,58 @@
+HA$PBExportHeader$d_tarjetatipo_manto.srd
+release 10;
+datawindow(units=0 timer_interval=0 color=67108864 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=1232 color="536870912" )
+table(column=(type=char(36) update=yes updatewhereclause=yes key=yes name=idtarjetatipo dbname="tarjetatipo.idtarjetatipo" )
+ column=(type=char(3) update=yes updatewhereclause=yes name=codigo dbname="tarjetatipo.codtarjetatipo" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=nombre dbname="tarjetatipo.nombre" )
+ column=(type=number update=yes updatewhereclause=yes name=estado dbname="tarjetatipo.estado" initial="1" values="Activo	1/Activo	0" )
+ column=(type=datetime update=yes updatewhereclause=yes name=fecharegistro dbname="tarjetatipo.fecharegistro" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=usuario dbname="tarjetatipo.usuario" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=terminal dbname="tarjetatipo.terminal" )
+ column=(type=datetime update=yes updatewhereclause=yes name=ultimamodificacion dbname="tarjetatipo.ultimamodificacion" )
+ column=(type=char(36) update=yes updatewhereclause=yes name=idempresa dbname="tarjetatipo.idempresa" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"tarjetatipo~" ) COLUMN(NAME=~"tarjetatipo.idtarjetatipo~") COLUMN(NAME=~"tarjetatipo.codtarjetatipo~") COLUMN(NAME=~"tarjetatipo.nombre~") COLUMN(NAME=~"tarjetatipo.estado~") COLUMN(NAME=~"tarjetatipo.fecharegistro~") COLUMN(NAME=~"tarjetatipo.usuario~") COLUMN(NAME=~"tarjetatipo.terminal~") COLUMN(NAME=~"tarjetatipo.ultimamodificacion~") COLUMN(NAME=~"tarjetatipo.idempresa~")WHERE(    EXP1 =~"tarjetatipo.idempresa~"   OP =~"=~"    EXP2 =~":id~"    LOGIC =~"And~" ) WHERE(    EXP1 =~"tarjetatipo.idtarjetatipo~"   OP =~"=~"    EXP2 =~":codigo~" ) ) ARG(NAME = ~"id~" TYPE = string)  ARG(NAME = ~"codigo~" TYPE = string) " update="tarjetatipo" updatewhere=1 updatekeyinplace=no arguments=(("id", string),("codigo", string)) )
+text(band=detail alignment="1" text="Codtarjetatipo:" border="0" color="33554432" x="37" y="140" height="64" width="517" html.valueishtml="0"  name=codtarjetatipo_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Nombre:" border="0" color="33554432" x="37" y="276" height="64" width="517" html.valueishtml="0"  name=nombre_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Estado:" border="0" color="33554432" x="37" y="412" height="64" width="517" html.valueishtml="0"  name=estado_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=20 border="0" color="33554432" x="571" y="412" height="76" width="329" format="[general]" html.valueishtml="0"  name=estado  tag="No" visible="1" checkbox.text="Activo" checkbox.on="1" checkbox.off="0" checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Usuario:" border="0" color="33554432" x="37" y="684" height="64" width="517" html.valueishtml="0"  name=usuario_t visible="0"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="5" color="33554432" x="571" y="684" height="76" width="192" format="[general]" html.valueishtml="0"  name=usuario  tag="No" visible="0" edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Terminal:" border="0" color="33554432" x="37" y="820" height="64" width="517" html.valueishtml="0"  name=terminal_t visible="0"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="5" color="33554432" x="571" y="820" height="76" width="1673" format="[general]" html.valueishtml="0"  name=terminal  tag="No" visible="0" edit.limit=60 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Ultimamodificacion:" border="0" color="33554432" x="37" y="956" height="64" width="517" html.valueishtml="0"  name=ultimamodificacion_t visible="0"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Idempresa:" border="0" color="33554432" x="37" y="1092" height="64" width="517" html.valueishtml="0"  name=idempresa_t visible="0"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Fecharegistro:" border="0" color="33554432" x="1111" y="140" height="64" width="517" html.valueishtml="0"  name=fecharegistro_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="5" color="33554432" x="571" y="140" height="76" width="137" format="[general]" html.valueishtml="0"  name=codigo  tag="No" visible="1" edit.limit=3 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=10 border="5" color="33554432" x="571" y="276" height="76" width="1673" format="[general]" html.valueishtml="0"  name=nombre  tag="Nombre Tipo de Tarjeta" visible="1" edit.limit=60 edit.case=upper edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="5" color="33554432" x="1641" y="140" height="76" width="603" format="[shortdate] [time]" html.valueishtml="0"  name=fecharegistro  tag="No" visible="1" accelerator=" " edit.name="DD/MM/YYYY HH:MM:SS" editmask.mask="DD/MM/YYYY HH:MM:SS" editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=detail alignment="0" expression="Bitmap(
+If( CurrentRow()= GetRow(),
+	If(IsRowNew(),
+		If(IsRowModified(),~"DWCurrentNewModified.bmp~",~"DWCurrentNew.bmp~")
+	,	
+		If(IsRowModified(),~"DWCurrentModified.bmp~",~"DWCurrent.bmp~")
+	)
+,
+	If(IsRowNew(),
+		If(IsRowModified(),~"DWNewModified.bmp~",~"DWNewRow.bmp~")
+	,	
+	If(IsRowModified(),~"DWModified.bmp~",~"DWBlank.bmp~")
+	)
+)
+)"border="6" color="33554432~tif(  estado = 0,rgb(255,0,0),rgb(0,0,0 ))" x="736" y="136" height="72" width="87" format="[GENERAL]" html.valueishtml="0"  name=none visible="1"  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="5" color="33554432" x="571" y="956" height="76" width="603" format="[shortdate] [time]" html.valueishtml="0"  name=ultimamodificacion  tag="No" visible="0" accelerator=" " edit.name="DD/MM/YYYY HH:MM:SS" editmask.mask="DD/MM/YYYY HH:MM:SS" editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="5" color="33554432" x="571" y="1092" height="76" width="1015" format="[general]" html.valueishtml="0"  name=idempresa  tag="No" visible="0" edit.limit=36 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

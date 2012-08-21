@@ -1,0 +1,20 @@
+HA$PBExportHeader$s_sqlca.srs
+global type s_sqlca from structure
+	boolean		autocommit[]
+	string		database[]
+	string		dbms[]
+	string		dbparm[]
+	string		dbpass[]
+	string		lock[]
+	string		logid[]
+	string		logpass[]
+	string		servername[]
+	long		sqlcode[]
+	long		sqldbcode[]
+	string		sqlerrtext[]
+	long		sqlnrows[]
+	string		sqlreturndata[]
+	string		userid[]
+	string		trustedconnection[]
+end type
+

@@ -1,0 +1,25 @@
+HA$PBExportHeader$s_work.srs
+global type s_work from structure
+	decimal { 0 }		idempresa
+	string		empresa
+	string		empresades
+	string		ruc
+	string		direccion
+	string		ubigeo
+	longlong		idmonedanacional
+	longlong		idmonedaextranjera
+	longlong		idestadomensualoperacion
+	boolean		estadooperacion
+	boolean		estadomensualoperacion
+	integer		anio
+	integer		mes
+	date		fechatrabajo
+	date		fechasistema
+	string		aplicacion
+	longlong		idtipocambio
+	decimal { 4 }		tipocambio
+	decimal { 4 }		tipocambiocompra
+	decimal { 4 }		tipocambioventa
+	boolean		fechasiguales
+end type
+

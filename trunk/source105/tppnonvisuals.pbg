@@ -1,0 +1,19 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "tppnonvisuals.pbl" "";
+@end;
+@begin Objects
+ "n_macip.sru" "tppnonvisuals.pbl";
+ "n_security.sru" "tppnonvisuals.pbl";
+ "n_ds.sru" "tppnonvisuals.pbl";
+ "nvo_comctl_progressbar.sru" "tppnonvisuals.pbl";
+ "n_cst_dwsrv_resize.sru" "tppnonvisuals.pbl";
+ "n_applicacion.sru" "tppnonvisuals.pbl";
+ "n_cst_infoattrib.sru" "tppnonvisuals.pbl";
+ "n_cst_propertyattrib.sru" "tppnonvisuals.pbl";
+ "n_application.sru" "tppnonvisuals.pbl";
+ "nvo_pbwindow.sru" "tppnonvisuals.pbl";
+ "n_cst_resize.sru" "tppnonvisuals.pbl";
+ "ds_articulos.sru" "tppnonvisuals.pbl";
+ "n_tooltip.sru" "tppnonvisuals.pbl";
+@end;

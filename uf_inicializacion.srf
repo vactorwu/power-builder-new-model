@@ -1,0 +1,11 @@
+HA$PBExportHeader$uf_inicializacion.srf
+global type uf_inicializacion from function_object
+end type
+
+forward prototypes
+global subroutine uf_inicializacion ()
+end prototypes
+
+global subroutine uf_inicializacion ();//if not isvalid(w_stocks_peligro) then opensheet(w_stocks_peligro,w_frame,1,original!)
+end subroutine
+

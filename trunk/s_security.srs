@@ -1,0 +1,18 @@
+HA$PBExportHeader$s_security.srs
+$PBExportComments$estructura de seguridad.
+global type s_security from structure
+	string		cod_usuario
+	string		cod_usuario_area
+	string		cod_representacion
+	string		cod_sede
+	string		cod_area
+	string		cod_subarea
+	string		cod_subarea_detalle
+	string		des_representacion
+	string		des_area
+	string		des_subarea
+	string		des_subarea_detalle
+	string		des_usuario
+	string		des_login
+end type
+

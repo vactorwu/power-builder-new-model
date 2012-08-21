@@ -1,0 +1,21 @@
+HA$PBExportHeader$s_printers.srs
+global type s_printers from structure
+	string		printproforma
+	string		printboleta
+	string		printticket
+	string		printfactura
+	string		printguia
+	string		proformaserie
+	string		boletaserie
+	string		ticketserie
+	string		facturaserie
+	string		guiaserie
+	string		docproforma
+	string		docboleta
+	string		docticket
+	string		docfactura
+	string		docguia
+	string		printasignada
+	string		docasignado
+end type
+

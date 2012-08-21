@@ -1,0 +1,14 @@
+HA$PBExportHeader$s_application.srs
+$PBExportComments$estructura de la aplicaci$$HEX1$$f300$$ENDHEX$$n del sistema.
+global type s_application from structure
+	string		cod_parametro
+	string		cod_autogenerado
+	string		cod_aplicacion
+	string		des_representacion
+	string		des_sede
+	string		des_aplicativo
+	string		des_version
+	string		des_anno
+	boolean		ind_busqueda
+end type
+

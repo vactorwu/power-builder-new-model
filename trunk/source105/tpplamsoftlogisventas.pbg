@@ -3,8 +3,4 @@ Save Format v3.0(19990112)
  "tpplamsoftlogisventas.pbl" "";
 @end;
 @begin Objects
- "uo_blat.sru" "tpplamsoftlogisventas.pbl";
- "d_proforma_cab.srd" "tpplamsoftlogisventas.pbl";
- "d_proforma_det.srd" "tpplamsoftlogisventas.pbl";
- "d_proforma_lista.srd" "tpplamsoftlogisventas.pbl";
 @end;

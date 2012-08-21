@@ -3,27 +3,4 @@ Save Format v3.0(19990112)
  "tppsegobjects.pbl" "";
 @end;
 @begin Objects
- "st_db.srs" "tppsegobjects.pbl";
- "n_basedw.sru" "tppsegobjects.pbl";
- "st_objetos.srs" "tppsegobjects.pbl";
- "s_work.srs" "tppsegobjects.pbl";
- "s_tr.srs" "tppsegobjects.pbl";
- "n_coneccion_seguridad.sru" "tppsegobjects.pbl";
- "d_fechatrabajo.srd" "tppsegobjects.pbl";
- "n_coneccion_modelo.sru" "tppsegobjects.pbl";
- "n_base_transaccion.sru" "tppsegobjects.pbl";
- "n_base_coneccion.sru" "tppsegobjects.pbl";
- "n_transaccion_entrar.sru" "tppsegobjects.pbl";
- "n_coneccion_entrar.sru" "tppsegobjects.pbl";
- "w_securityadmin.srw" "tppsegobjects.pbl";
- "uo_security_mssql.sru" "tppsegobjects.pbl";
- "d_database_profile_setup_01.srd" "tppsegobjects.pbl";
- "d_database_profile_setup_02.srd" "tppsegobjects.pbl";
- "d_database_profile_setup_03.srd" "tppsegobjects.pbl";
- "d_database_profile_setup_04.srd" "tppsegobjects.pbl";
- "s_sqlca.srs" "tppsegobjects.pbl";
- "d_database_profile_setup.srd" "tppsegobjects.pbl";
- "w_database_profile_setup.srw" "tppsegobjects.pbl";
- "s_config.srs" "tppsegobjects.pbl";
- "n_config.sru" "tppsegobjects.pbl";
 @end;

@@ -1,0 +1,18 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "tpplamsoftfind.pbl" "";
+@end;
+@begin Objects
+ "w_buscar.srw" "tpplamsoftfind.pbl";
+ "st_datos.srs" "tpplamsoftfind.pbl";
+ "w_manto_entidad_mini.srw" "tpplamsoftfind.pbl";
+ "w_buscar_ubigeo_lista.srw" "tpplamsoftfind.pbl";
+ "d_entidad_lista_mini.srd" "tpplamsoftfind.pbl";
+ "d_dddw_ubigeo.srd" "tpplamsoftfind.pbl";
+ "d_entidad_manto_mini.srd" "tpplamsoftfind.pbl";
+ "w_buscar_entidad.srw" "tpplamsoftfind.pbl";
+ "d_ubigeo_lista.srd" "tpplamsoftfind.pbl";
+ "w_buscar_producto.srw" "tpplamsoftfind.pbl";
+ "w_buscarprueba.srw" "tpplamsoftfind.pbl";
+ "d_dddw_grupo.srd" "tpplamsoftfind.pbl";
+@end;

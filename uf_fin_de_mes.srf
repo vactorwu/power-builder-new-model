@@ -1,0 +1,30 @@
+HA$PBExportHeader$uf_fin_de_mes.srf
+global type uf_fin_de_mes from function_object
+end type
+
+forward prototypes
+global function datetime uf_fin_de_mes (datetime adt_fecha)
+end prototypes
+
+global function datetime uf_fin_de_mes (datetime adt_fecha);Int li_dia, li_mes, li_anio
+Date ld_Fecha
+DateTime ldt_Fecha
+
+ld_Fecha = Date(adt_fecha)
+
+ li_dia		= Day(ld_Fecha)
+ li_mes	= Month(ld_Fecha)
+ li_anio	= Year(ld_Fecha)
+ 
+choose case li_mes
+	case 1 to 11
+		ld_Fecha = RelativeDate(Date(li_anio,li_mes + 1 , 1) , -1)
+	case 12
+		ld_Fecha = RelativeDate(Date(li_anio+1, 1 , 1) , -1)
+end choose
+
+ldt_Fecha = DateTime(ld_Fecha)
+
+Return ldt_Fecha
+end function
+

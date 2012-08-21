@@ -1,0 +1,48 @@
+HA$PBExportHeader$uf_install_odbc.srf
+global type uf_install_odbc from function_object
+end type
+
+forward prototypes
+global subroutine uf_install_odbc ()
+end prototypes
+
+global subroutine uf_install_odbc ();string NombreDriver,Driver,NombreOdbc,Database,ODBC_CONN, NULO ,IP
+
+NombreDriver="LamSoft2003"
+Driver = Path +"\DRIVER\dbodbc8.dll"
+NombreOdbc = "BOTICASS"
+Database="BOTICAS"
+ODBC_CONN ="ODBC_CONN_LAM"
+IP=ProfileString("CONFIG.INI", "CONFIGURACION",  "IP", "SharedMemory,TCPIP{}") 
+SETNULL(NULO)
+
+RegistrySet("HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBCINST.INI\"+NombreDriver, NULO, RegString!, NULO)
+RegistrySet("HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBCINST.INI\"+NombreDriver, "Driver", RegString!, Driver)
+RegistrySet("HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBCINST.INI\"+NombreDriver, "Setup", RegString!, Driver)
+
+RegistrySet("HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBCINST.INI\ODBC Drivers", NombreDriver, RegString!, "Installed")
+
+RegistrySet("HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI\ODBC Data Sources", NombreOdbc, RegString!, NombreDriver)
+
+RegistrySet("HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI\"+NombreOdbc,NULO, RegString!,NULO )
+RegistrySet("HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI\"+NombreOdbc, "Driver", RegString!, Driver)
+RegistrySet("HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI\"+NombreOdbc, "UID", RegString!, "DBA")
+RegistrySet("HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI\"+NombreOdbc, "PWD", RegString!, "SQL")
+RegistrySet("HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI\"+NombreOdbc, "DatabaseName", RegString!, Database)
+RegistrySet("HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI\"+NombreOdbc, "EngineName", RegString!, Database)
+RegistrySet("HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI\"+NombreOdbc, "AutoStop", RegString!, "Yes")
+RegistrySet("HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI\"+NombreOdbc, "Integrated", RegString!, "No")
+RegistrySet("HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI\"+NombreOdbc, "ConnectionName", RegString!, ODBC_CONN)
+RegistrySet("HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI\"+NombreOdbc, "Debug", RegString!, "NO")
+RegistrySet("HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI\"+NombreOdbc, "DisableMultiRowFetch", RegString!, "NO")
+RegistrySet("HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI\"+NombreOdbc, "CommLinks", RegString!, IP)
+RegistrySet("HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI\"+NombreOdbc, "Compress", RegString!, "NO")
+
+
+
+
+
+
+
+end subroutine
+

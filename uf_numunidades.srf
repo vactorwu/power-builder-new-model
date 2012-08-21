@@ -1,0 +1,33 @@
+HA$PBExportHeader$uf_numunidades.srf
+global type uf_numunidades from function_object
+end type
+
+forward prototypes
+global function string uf_numunidades (long unidad)
+end prototypes
+
+global function string uf_numunidades (long unidad);CHOOSE CASE unidad
+CASE 0
+  return ''
+CASE 1
+  return 'uno'
+CASE 2
+  return 'dos'
+CASE 3
+  return 'tres'
+CASE 4
+  return 'cuatro'
+CASE 5
+  return 'cinco'
+CASE 6
+  return 'seis'
+CASE 7
+  return 'siete'
+CASE 8
+  return 'ocho'
+CASE 9
+  return 'nueve'
+END CHOOSE
+
+end function
+

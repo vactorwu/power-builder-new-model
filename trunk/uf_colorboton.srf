@@ -1,0 +1,37 @@
+HA$PBExportHeader$uf_colorboton.srf
+global type uf_colorboton from function_object
+end type
+
+forward prototypes
+global function long uf_colorboton ()
+end prototypes
+
+global function long uf_colorboton ();int li_red, li_green,li_blue
+long llStart, llEnd,ll_color
+String ls_buttonface
+string  sFind   = ' '
+string  sToken
+
+RegistryGet ('hkey_current_user\control panel\colors', 'buttonface', ls_buttonface)
+
+ llEnd = Len(ls_buttonface) + 1
+ 
+ llStart = LastPos(ls_buttonface, sFind, llEnd)
+ sToken 	= Mid(ls_buttonface, (llStart + 1), (llEnd - llStart))
+ li_blue = Integer(sToken) 
+ llEnd 	= llStart - 1
+ 
+ llStart = LastPos(ls_buttonface, sFind, llEnd)
+ sToken  = Mid(ls_buttonface, (llStart + 1), (llEnd - llStart))
+ li_green= Integer(sToken) 
+ llEnd 	= llStart - 1
+ 
+ llStart = LastPos(ls_buttonface, sFind, llEnd)
+ sToken  = Mid(ls_buttonface, (llStart + 1), (llEnd - llStart))
+ li_red  = Integer(sToken)
+
+ ll_color = RGB(li_red,li_green,li_blue)
+ 
+ Return ll_color
+end function
+

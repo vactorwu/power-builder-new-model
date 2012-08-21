@@ -1,0 +1,11 @@
+HA$PBExportHeader$uf_colorbotonl.srf
+global type uf_colorbotonl from function_object
+end type
+
+forward prototypes
+global function long uf_colorbotonl ()
+end prototypes
+
+global function long uf_colorbotonl ();return gl_colorboton
+end function
+

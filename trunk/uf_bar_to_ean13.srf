@@ -1,0 +1,80 @@
+HA$PBExportHeader$uf_bar_to_ean13.srf
+global type uf_bar_to_ean13 from function_object
+end type
+
+forward prototypes
+global function string uf_een13 (string verificado)
+global function any uf_bar_to_ean13 (string verificado)
+end prototypes
+
+global function string uf_een13 (string verificado);Return "1"
+end function
+
+global function any uf_bar_to_ean13 (string verificado);//Digito de Verificacion
+int N1,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,N12,N13
+int M1,M2,M3,M4,M5,M6,M7,M8,M9,M10,M11,M12,M13
+int med
+string Ean13_bar
+//Messagebox("Uno",Verificado)
+
+If len(Verificado) = 0 then
+	Verificado= '0000000000000'
+	Ean13_bar = '0000000000000'
+End If
+	med = len(Verificado)
+
+If len(Verificado) =13 then	
+	Verificado =Mid(Verificado,1,12)
+	med = len(Verificado)
+End If
+
+If len(Verificado) <=12 THEN //or len(Verificado) >=1 then
+	med = len(Verificado)
+	Verificado = Mid('000000000000',1,(12 - len(Verificado)))+Verificado
+//Messagebox("DOS",Verificado)
+	N1	=INTEGER(MID(Verificado,1,1))
+	N2 =INTEGER(MID(Verificado,2,1))
+	N3	=INTEGER(MID(Verificado,3,1))
+	N4	=INTEGER(MID(Verificado,4,1))
+	N5	=INTEGER(MID(Verificado,5,1))
+	N6	=INTEGER(MID(Verificado,6,1))
+	N7	=INTEGER(MID(Verificado,7,1))
+	N8	=INTEGER(MID(Verificado,8,1))
+	N9	=INTEGER(MID(Verificado,9,1))
+	N10=INTEGER(MID(Verificado,10,1))
+	N11=INTEGER(MID(Verificado,11,1))
+	N12=INTEGER(MID(Verificado,12,1))
+	M1  = N1 *1
+	M2  = N2 *3
+	M3  = N3 *1
+	M4  = N4 *3
+	M5  = N5 *1
+	M6  = N6 *3
+	M7  = N7 *1
+	M8  = N8 *3
+	M9  = N9 *1
+	M10 = N10 *3
+	M11 = N11 *1
+	M12 = N12 *3
+	M13 = M1+M2+M3+M4+M5+M6+M7+M8+M9+M10+M11+M12
+//	IF  MOD(M13,10) = 0 Then
+//		N13 = 0
+//	Else
+//		N13 = 10 - MOD(M13,10)
+//	End IF
+	Verificado = Verificado  //+ string(N13)
+//	Messagebox("Tres   N"+string(N13) +"  M" +string(N13) +"  " + String(Len(Ean13_bar)),Verificado)
+//	if Len(Verificado) = 0 then
+//		Verificado = "0000000000000"
+//	Else
+		Ean13_bar	 = Verificado 
+//	End If
+//Messagebox("Tres   N"+string(N13) +"  M" +string(N13) +"  " + String(Len(Ean13_bar)),Verificado)
+End If
+//Messagebox("Cuatro   N"+string(N13) +"  M" +string(N13) +"  " + String(Len(Ean13_bar)),Verificado)
+return Ean13_bar
+
+
+
+end function
+

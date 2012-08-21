@@ -1,0 +1,29 @@
+HA$PBExportHeader$af_dw_print.srf
+$PBExportComments$New! Print Datawindow with Parameters. Calls Print Option Dialog if no paramters are sent
+global type af_dw_print from function_object
+end type
+
+forward prototypes
+global function integer af_dw_print (ref datawindow adw_dw, integer ai_copies, string as_filename)
+end prototypes
+
+global function integer af_dw_print (ref datawindow adw_dw, integer ai_copies, string as_filename);
+int  li_printed, li_rc
+
+// test if parameters were supplied
+If ai_copies = 0 and as_filename = "" Then
+  //open window with  print options
+  openwithparm(w_print,adw_dw)
+  li_rc = message.doubleparm
+  //print the datawindow if they didn't hit cancel
+  if li_rc = 1 then li_printed = adw_dw.print() else li_printed = -1
+else  //Parameters supplied in arguments
+  if ai_copies >= 0 then adw_dw.modify('datawindow.print.copies=' + string(ai_copies) + ')')
+  adw_dw.modify("datawindow.print.filename='" + string(as_filename) + "')")
+  li_printed = adw_dw.print( )
+end If
+
+//return condition code of the print function or -1 if user hit cancel in setup dialog
+return(li_printed)
+end function
+

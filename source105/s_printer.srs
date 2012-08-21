@@ -1,0 +1,8 @@
+HA$PBExportHeader$s_printer.srs
+global type s_printer from structure
+	string		s_impresora[]
+	string		s_driver[]
+	string		s_puerto[]
+	decimal{0}		d_impresoras
+end type
+

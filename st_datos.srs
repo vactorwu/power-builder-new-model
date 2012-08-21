@@ -1,0 +1,12 @@
+HA$PBExportHeader$st_datos.srs
+global type st_datos from structure
+	decimal		idcodigo
+	string		codigo
+	string		params[]
+	decimal		paramd[]
+	any		parama[]
+	long		paraml[]
+	integer		parami[]
+	decimal		paramN[]
+end type
+

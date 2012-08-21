@@ -1,0 +1,43 @@
+HA$PBExportHeader$uf_validaruc.srf
+global type uf_validaruc from function_object
+end type
+
+forward prototypes
+global function boolean uf_validaruc (string as_valor)
+end prototypes
+
+global function boolean uf_validaruc (string as_valor);Int li_Suma,li_I,li_Resto,li_Digito, li_X 
+
+  as_valor = trim(as_valor)
+  
+  If ( IsNumber( as_valor ) )  Then
+		If( Len(as_valor)= 11 ) Then	
+			li_Suma = 0
+			li_X = 6
+			
+			For li_I=1 To Len(as_valor)-1
+				If li_I = 5  Then li_X = 8
+				li_Digito =    Integer(Mid(as_valor,li_I,1))
+				li_X --
+				If (li_I=1 )Then
+					li_Suma += (li_Digito*li_X)
+				Else
+					li_Suma += (li_Digito*li_X)
+				End If
+			Next
+			
+			li_Resto = Mod(li_Suma, 11)
+			li_Resto = 11 - li_Resto
+				
+			If li_Resto >= 10 then li_Resto = li_Resto - 10
+			If  li_Resto = Integer( Mid(as_valor, Len(as_valor),1 )  ) 	 Then	Return True		
+		Else 
+			Return False	
+		End If
+End If
+
+Return False
+  
+
+end function
+

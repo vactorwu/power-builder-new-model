@@ -1,0 +1,66 @@
+HA$PBExportHeader$uf_seguridad.srf
+global type uf_seguridad from function_object
+end type
+
+forward prototypes
+global subroutine uf_seguridad ()
+end prototypes
+
+global subroutine uf_seguridad ();boolean rtn
+string lprootpathname = "C:\"
+string lpVolumeNameBuffer = space(256)
+ulong nVolumeNameSize = 256
+ulong lpVolumeSerialNumber
+ulong lpMaximumComponentLength
+//setnull(lpVolumeSerialNumber)
+lpMaximumComponentLength = 256
+ulong lpFileSystemFlags
+//setnull(lpFileSystemFlags)
+string lpFileSystemNameBuffer = space(256)
+ulong nFileSystemNameSize = 256
+String Serie,Particion, Verificar, salio, toti, CLAVE, LS_VERIFICAR,LS_TOTI
+
+
+
+rtn = GetVolumeInformation(lpRootPathName, lpVolumeNameBuffer, nVolumeNameSize,lpVolumeSerialNumber, lpMaximumComponentLength, lpFileSystemFlags,lpFileSystemNameBuffer, nFileSystemNameSize)
+Serie = string(lpVolumeSerialNumber)
+Particion =string(lpFileSystemNameBuffer)
+
+Double Sum, i, Veri,Total,reg
+
+For i = 1 to len(Serie) 
+	Sum = Sum + Double(Mid(serie,i,1))
+Next
+
+Verificar  = String(Serie) + String(Particion)
+
+If Mid(Particion,1,1) = 'N' then
+	Veri = 50
+Else
+	Veri = 32
+End IF
+
+
+Clave  = String(Double(Double(Serie) *  Double(Veri) + 5102001))
+
+Total = Sum * Veri * 5102001
+toti = String(Total)
+
+RegistryGet("HKEY_LOCAL_MACHINE\Software\LamSoft\Sacav\Info","Serial", RegString!, LS_VERIFICAR)
+
+//Messagebox(clave,Path+"\"+toti)
+	IF (LS_VERIFICAR <> toti) then
+		OpenWithParm(w_secur, Verificar)
+		Salio =		Message.StringParm
+		If Salio = Clave then
+			RegistrySet("HKEY_LOCAL_MACHINE\SOFTWARE\LAMSOFT\SACAV\INFO","Serial", RegString!, TOTI)
+		Else
+			If DaysAfter(DiasTrial, today()) <=30 then
+				MESSAGEBOX("Modo de Prueba","Quedan "+String(30 - DaysAfter(DiasTrial, today()))+" dias de Prueba")
+			Else
+				Halt Close
+			End If
+		End IF
+	End IF
+end subroutine
+

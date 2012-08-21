@@ -1,0 +1,12 @@
+HA$PBExportHeader$uf_get_ubigeo.srf
+global type uf_get_ubigeo from function_object
+end type
+
+forward prototypes
+global function string uf_get_ubigeo (string as_idubigeo)
+end prototypes
+
+global function string uf_get_ubigeo (string as_idubigeo);
+Return gn_config.of_get_ubigeo( as_idubigeo )
+end function
+

@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_execute_sql.srf
+global type f_execute_sql from function_object
+end type
+
+forward prototypes
+global function integer f_execute_sql (string as_sql_syntax)
+end prototypes
+
+global function integer f_execute_sql (string as_sql_syntax);
+	EXECUTE IMMEDIATE :as_sql_syntax USING SQLCA;
+
+IF SQLCA.SQLCODE < 0 THEN
+	ROLLBACK USING SQLCA;	
+	Messagebox("Error",SQLCA.SqlerrText,StopSign!)
+ELSE
+	COMMIT USING SQLCA;
+END IF
+
+RETURN SQLCA.SQLCODE
+end function
+

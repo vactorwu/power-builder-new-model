@@ -1,0 +1,70 @@
+HA$PBExportHeader$m_tppsoftbasenew.srm
+forward
+global type m_tppsoftbasenew from menu
+end type
+type m_archivo from menu within m_tppsoftbasenew
+end type
+global type m_tppsoftbasenew from menu
+m_archivo m_archivo
+end type
+end forward
+
+global type m_tppsoftbasenew from menu
+m_archivo m_archivo
+end type
+global m_tppsoftbasenew m_tppsoftbasenew
+
+on m_tppsoftbasenew.create
+m_tppsoftbasenew=this
+call super::create
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_archivo=create m_archivo
+this.Item[UpperBound(this.Item)+1]=this.m_archivo
+end on
+
+on m_tppsoftbasenew.destroy
+call super::destroy
+destroy(this.m_archivo)
+end on
+
+type m_archivo from menu within m_tppsoftbasenew
+end type
+
+on m_archivo.create
+call super::create
+this.text = "&Utiles"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_archivo.destroy
+call super::destroy
+end on
+

@@ -1,0 +1,1358 @@
+HA$PBExportHeader$m_tppsoftmanto.srm
+forward
+global type m_tppsoftmanto from m_tppsoftbase
+end type
+end forward
+
+global type m_tppsoftmanto from m_tppsoftbase
+end type
+global m_tppsoftmanto m_tppsoftmanto
+
+on m_tppsoftmanto.create
+m_tppsoftmanto=this
+call super::create
+end on
+
+on m_tppsoftmanto.destroy
+call super::destroy
+end on
+
+type m_archivo from m_tppsoftbase`m_archivo within m_tppsoftmanto
+end type
+
+on m_archivo.create
+call super::create
+this.toolbaritembarindex = 0
+end on
+
+on m_archivo.destroy
+call super::destroy
+end on
+
+type m_nuevo from m_tppsoftbase`m_nuevo within m_archivo
+end type
+
+event m_nuevo::clicked;call super::clicked;ParentWindow.TriggerEvent('ue_new')
+end event
+
+on m_nuevo.create
+call super::create
+this.visible = true
+this.text = "&Nuevo~tCtrl+N"
+this.enabled = true
+this.shortcut = 334
+this.toolbaritemvisible = true
+this.toolbaritemspace = 1
+end on
+
+on m_nuevo.destroy
+call super::destroy
+end on
+
+type m_modificar from m_tppsoftbase`m_modificar within m_archivo
+end type
+
+event m_modificar::clicked;call super::clicked;ParentWindow.TriggerEvent('ue_modify')
+end event
+
+on m_modificar.create
+call super::create
+this.visible = true
+this.enabled = true
+this.toolbaritemvisible = true
+end on
+
+on m_modificar.destroy
+call super::destroy
+end on
+
+type m_eliminar from m_tppsoftbase`m_eliminar within m_archivo
+end type
+
+event m_eliminar::clicked;call super::clicked;ParentWindow.TriggerEvent('ue_delete')
+end event
+
+on m_eliminar.create
+call super::create
+this.visible = true
+this.enabled = true
+this.toolbaritemvisible = true
+end on
+
+on m_eliminar.destroy
+call super::destroy
+end on
+
+type m_guardar from m_tppsoftbase`m_guardar within m_archivo
+end type
+
+event m_guardar::clicked;call super::clicked;ParentWindow.TriggerEvent('ue_save')
+end event
+
+on m_guardar.create
+call super::create
+this.visible = true
+this.toolbaritemvisible = true
+end on
+
+on m_guardar.destroy
+call super::destroy
+end on
+
+type m_cancelar from m_tppsoftbase`m_cancelar within m_archivo
+end type
+
+event m_cancelar::clicked;call super::clicked;ParentWindow.TriggerEvent('ue_undo')
+end event
+
+on m_cancelar.create
+call super::create
+this.visible = true
+this.toolbaritemvisible = true
+end on
+
+on m_cancelar.destroy
+call super::destroy
+end on
+
+type m_-3 from m_tppsoftbase`m_-3 within m_archivo
+end type
+
+on m_-3.create
+call super::create
+this.visible = true
+this.enabled = true
+this.toolbaritemvisible = true
+end on
+
+on m_-3.destroy
+call super::destroy
+end on
+
+type m_primero from m_tppsoftbase`m_primero within m_archivo
+end type
+
+event m_primero::clicked;call super::clicked;
+ParentWindow.TriggerEvent('ue_tofirst')
+end event
+
+on m_primero.create
+call super::create
+this.visible = true
+this.enabled = true
+this.toolbaritemvisible = true
+end on
+
+on m_primero.destroy
+call super::destroy
+end on
+
+type m_anterior from m_tppsoftbase`m_anterior within m_archivo
+end type
+
+event m_anterior::clicked;call super::clicked;ParentWindow.TriggerEvent('ue_toprior')
+end event
+
+on m_anterior.create
+call super::create
+this.visible = true
+this.enabled = true
+this.toolbaritemvisible = true
+end on
+
+on m_anterior.destroy
+call super::destroy
+end on
+
+type m_siguiente from m_tppsoftbase`m_siguiente within m_archivo
+end type
+
+event m_siguiente::clicked;call super::clicked;ParentWindow.TriggerEvent('ue_tonext')
+end event
+
+on m_siguiente.create
+call super::create
+this.visible = true
+this.enabled = true
+this.toolbaritemvisible = true
+end on
+
+on m_siguiente.destroy
+call super::destroy
+end on
+
+type m_ultimo from m_tppsoftbase`m_ultimo within m_archivo
+end type
+
+event m_ultimo::clicked;call super::clicked;ParentWindow.TriggerEvent('ue_tolast')
+end event
+
+on m_ultimo.create
+call super::create
+this.visible = true
+this.enabled = true
+this.toolbaritemvisible = true
+end on
+
+on m_ultimo.destroy
+call super::destroy
+end on
+
+type m_-0 from m_tppsoftbase`m_-0 within m_archivo
+end type
+
+on m_-0.create
+call super::create
+this.visible = true
+this.enabled = true
+this.toolbaritemvisible = true
+end on
+
+on m_-0.destroy
+call super::destroy
+end on
+
+type m_cerrar from m_tppsoftbase`m_cerrar within m_archivo
+end type
+
+event m_cerrar::clicked;call super::clicked;//if messagebox(Gn_Config.Is_Work.Aplicacion,'Desea cerrar el modulo  ' + upper(string(ParentWindow.title)) ,question!,yesno!,1) = 1 then close(ParentWindow)
+ close(ParentWindow)
+end event
+
+on m_cerrar.create
+call super::create
+this.visible = true
+this.enabled = true
+this.toolbaritemvisible = true
+this.toolbaritemspace = 1
+end on
+
+on m_cerrar.destroy
+call super::destroy
+end on
+
+type m_insertaritem from m_tppsoftbase`m_insertaritem within m_archivo
+end type
+
+on m_insertaritem.create
+call super::create
+end on
+
+on m_insertaritem.destroy
+call super::destroy
+end on
+
+type m_eliminaritem from m_tppsoftbase`m_eliminaritem within m_archivo
+end type
+
+on m_eliminaritem.create
+call super::create
+end on
+
+on m_eliminaritem.destroy
+call super::destroy
+end on
+
+type m_-4 from m_tppsoftbase`m_-4 within m_archivo
+end type
+
+on m_-4.create
+call super::create
+end on
+
+on m_-4.destroy
+call super::destroy
+end on
+
+type m_buscar from m_tppsoftbase`m_buscar within m_archivo
+end type
+
+on m_buscar.create
+call super::create
+this.visible = true
+this.enabled = true
+this.toolbaritemvisible = true
+this.toolbaritemspace = 1
+end on
+
+on m_buscar.destroy
+call super::destroy
+end on
+
+event m_buscar::clicked;call super::clicked;ParentWindow.TriggerEvent('ue_find')
+end event
+
+type m_- from m_tppsoftbase`m_- within m_archivo
+end type
+
+on m_-.create
+call super::create
+this.visible = true
+this.enabled = true
+this.toolbaritemvisible = true
+end on
+
+on m_-.destroy
+call super::destroy
+end on
+
+type m_cambiarclave from m_tppsoftbase`m_cambiarclave within m_archivo
+end type
+
+on m_cambiarclave.create
+call super::create
+end on
+
+on m_cambiarclave.destroy
+call super::destroy
+end on
+
+type m_configurarimpresora from m_tppsoftbase`m_configurarimpresora within m_archivo
+end type
+
+on m_configurarimpresora.create
+call super::create
+this.toolbaritemspace = 1
+end on
+
+on m_configurarimpresora.destroy
+call super::destroy
+end on
+
+type m_imprimir from m_tppsoftbase`m_imprimir within m_archivo
+end type
+
+on m_imprimir.create
+call super::create
+end on
+
+on m_imprimir.destroy
+call super::destroy
+end on
+
+event m_imprimir::clicked;call super::clicked;ParentWindow.TriggerEvent('ue_print')
+end event
+
+type m_-2 from m_tppsoftbase`m_-2 within m_archivo
+end type
+
+on m_-2.create
+call super::create
+end on
+
+on m_-2.destroy
+call super::destroy
+end on
+
+type m_salirdelsistema from m_tppsoftbase`m_salirdelsistema within m_archivo
+end type
+
+on m_salirdelsistema.create
+call super::create
+this.visible = false
+this.enabled = false
+end on
+
+on m_salirdelsistema.destroy
+call super::destroy
+end on
+
+type m_-1 from m_tppsoftbase`m_-1 within m_archivo
+end type
+
+on m_-1.create
+call super::create
+end on
+
+on m_-1.destroy
+call super::destroy
+end on
+
+type m_manteminientos from m_tppsoftbase`m_manteminientos within m_tppsoftmanto
+end type
+
+on m_manteminientos.create
+call super::create
+end on
+
+on m_manteminientos.destroy
+call super::destroy
+end on
+
+type m_lineas from m_tppsoftbase`m_lineas within m_manteminientos
+end type
+
+on m_lineas.create
+call super::create
+this.toolbaritemvisible = false
+end on
+
+on m_lineas.destroy
+call super::destroy
+end on
+
+type m_color from m_tppsoftbase`m_color within m_manteminientos
+end type
+
+on m_color.create
+call super::create
+this.toolbaritemvisible = false
+end on
+
+on m_color.destroy
+call super::destroy
+end on
+
+type m_marcas from m_tppsoftbase`m_marcas within m_manteminientos
+end type
+
+on m_marcas.create
+call super::create
+this.toolbaritemvisible = false
+end on
+
+on m_marcas.destroy
+call super::destroy
+end on
+
+type m_talla from m_tppsoftbase`m_talla within m_manteminientos
+end type
+
+on m_talla.create
+call super::create
+this.toolbaritemvisible = false
+end on
+
+on m_talla.destroy
+call super::destroy
+end on
+
+type m_almacen from m_tppsoftbase`m_almacen within m_manteminientos
+end type
+
+on m_almacen.create
+call super::create
+this.toolbaritemvisible = false
+end on
+
+on m_almacen.destroy
+call super::destroy
+end on
+
+type m_arealaboral from m_tppsoftbase`m_arealaboral within m_manteminientos
+end type
+
+on m_arealaboral.create
+call super::create
+this.toolbaritemvisible = false
+end on
+
+on m_arealaboral.destroy
+call super::destroy
+end on
+
+type m_productos from m_tppsoftbase`m_productos within m_manteminientos
+end type
+
+on m_productos.create
+call super::create
+this.toolbaritemvisible = false
+end on
+
+on m_productos.destroy
+call super::destroy
+end on
+
+type m_listadeprecios from m_tppsoftbase`m_listadeprecios within m_manteminientos
+end type
+
+on m_listadeprecios.create
+call super::create
+this.toolbaritemvisible = false
+end on
+
+on m_listadeprecios.destroy
+call super::destroy
+end on
+
+type m_tiposdedocumento from m_tppsoftbase`m_tiposdedocumento within m_manteminientos
+end type
+
+on m_tiposdedocumento.create
+call super::create
+end on
+
+on m_tiposdedocumento.destroy
+call super::destroy
+end on
+
+type m_documentos from m_tppsoftbase`m_documentos within m_manteminientos
+end type
+
+on m_documentos.create
+call super::create
+end on
+
+on m_documentos.destroy
+call super::destroy
+end on
+
+type m_procesos from m_tppsoftbase`m_procesos within m_tppsoftmanto
+end type
+
+on m_procesos.create
+call super::create
+end on
+
+on m_procesos.destroy
+call super::destroy
+end on
+
+type m_proformas from m_tppsoftbase`m_proformas within m_ventas
+end type
+
+on m_proformas.create
+call super::create
+end on
+
+on m_proformas.destroy
+call super::destroy
+end on
+
+type m_ventas from m_tppsoftbase`m_ventas within m_procesos
+end type
+
+on m_ventas.create
+call super::create
+end on
+
+on m_ventas.destroy
+call super::destroy
+end on
+
+type m_cr$$HEX1$$e900$$ENDHEX$$ditos from m_tppsoftbase`m_cr$$HEX1$$e900$$ENDHEX$$ditos within m_tppsoftmanto
+end type
+
+on m_cr$$HEX1$$e900$$ENDHEX$$ditos.create
+call super::create
+end on
+
+on m_cr$$HEX1$$e900$$ENDHEX$$ditos.destroy
+call super::destroy
+end on
+
+type m_lineadecr$$HEX1$$e900$$ENDHEX$$dito from m_tppsoftbase`m_lineadecr$$HEX1$$e900$$ENDHEX$$dito within m_cr$$HEX1$$e900$$ENDHEX$$ditos
+end type
+
+on m_lineadecr$$HEX1$$e900$$ENDHEX$$dito.create
+call super::create
+end on
+
+on m_lineadecr$$HEX1$$e900$$ENDHEX$$dito.destroy
+call super::destroy
+end on
+
+type m_tipodelineadecr$$HEX1$$e900$$ENDHEX$$dito from m_tppsoftbase`m_tipodelineadecr$$HEX1$$e900$$ENDHEX$$dito within m_lineadecr$$HEX1$$e900$$ENDHEX$$dito
+end type
+
+on m_tipodelineadecr$$HEX1$$e900$$ENDHEX$$dito.create
+call super::create
+end on
+
+on m_tipodelineadecr$$HEX1$$e900$$ENDHEX$$dito.destroy
+call super::destroy
+end on
+
+type m_tarjetas from m_tppsoftbase`m_tarjetas within m_cr$$HEX1$$e900$$ENDHEX$$ditos
+end type
+
+on m_tarjetas.create
+call super::create
+end on
+
+on m_tarjetas.destroy
+call super::destroy
+end on
+
+type m_tipodetarjetas from m_tppsoftbase`m_tipodetarjetas within m_tarjetas
+end type
+
+on m_tipodetarjetas.create
+call super::create
+end on
+
+on m_tipodetarjetas.destroy
+call super::destroy
+end on
+
+type m_transacciones from m_tppsoftbase`m_transacciones within m_tppsoftmanto
+end type
+
+on m_transacciones.create
+call super::create
+end on
+
+on m_transacciones.destroy
+call super::destroy
+end on
+
+type m_articulo from m_tppsoftbase`m_articulo within m_transacciones
+end type
+
+on m_articulo.create
+call super::create
+end on
+
+on m_articulo.destroy
+call super::destroy
+end on
+
+type m_ingresosocompras from m_tppsoftbase`m_ingresosocompras within m_articulo
+end type
+
+on m_ingresosocompras.create
+call super::create
+end on
+
+on m_ingresosocompras.destroy
+call super::destroy
+end on
+
+type m_lecturacontometro from m_tppsoftbase`m_lecturacontometro within m_articulo
+end type
+
+on m_lecturacontometro.create
+call super::create
+end on
+
+on m_lecturacontometro.destroy
+call super::destroy
+end on
+
+type m_ventasdegrifo from m_tppsoftbase`m_ventasdegrifo within m_articulo
+end type
+
+on m_ventasdegrifo.create
+call super::create
+end on
+
+on m_ventasdegrifo.destroy
+call super::destroy
+end on
+
+type m_velescreditos from m_tppsoftbase`m_velescreditos within m_articulo
+end type
+
+on m_velescreditos.create
+call super::create
+end on
+
+on m_velescreditos.destroy
+call super::destroy
+end on
+
+type m_pagosadelantadosboletasdescto from m_tppsoftbase`m_pagosadelantadosboletasdescto within m_articulo
+end type
+
+on m_pagosadelantadosboletasdescto.create
+call super::create
+end on
+
+on m_pagosadelantadosboletasdescto.destroy
+call super::destroy
+end on
+
+type m_-8 from m_tppsoftbase`m_-8 within m_transacciones
+end type
+
+on m_-8.create
+call super::create
+end on
+
+on m_-8.destroy
+call super::destroy
+end on
+
+type m_clientes from m_tppsoftbase`m_clientes within m_transacciones
+end type
+
+on m_clientes.create
+call super::create
+end on
+
+on m_clientes.destroy
+call super::destroy
+end on
+
+type m_proveedores0 from m_tppsoftbase`m_proveedores0 within m_transacciones
+end type
+
+on m_proveedores0.create
+call super::create
+end on
+
+on m_proveedores0.destroy
+call super::destroy
+end on
+
+type m_correcciones from m_tppsoftbase`m_correcciones within m_transacciones
+end type
+
+on m_correcciones.create
+call super::create
+end on
+
+on m_correcciones.destroy
+call super::destroy
+end on
+
+type m_puntosdeventa from m_tppsoftbase`m_puntosdeventa within m_tppsoftmanto
+end type
+
+on m_puntosdeventa.create
+call super::create
+end on
+
+on m_puntosdeventa.destroy
+call super::destroy
+end on
+
+type m_0 from m_tppsoftbase`m_0 within m_puntosdeventa
+end type
+
+on m_0.create
+call super::create
+end on
+
+on m_0.destroy
+call super::destroy
+end on
+
+type m_caja from m_tppsoftbase`m_caja within m_puntosdeventa
+end type
+
+on m_caja.create
+call super::create
+end on
+
+on m_caja.destroy
+call super::destroy
+end on
+
+type m_reportes from m_tppsoftbase`m_reportes within m_tppsoftmanto
+end type
+
+on m_reportes.create
+call super::create
+end on
+
+on m_reportes.destroy
+call super::destroy
+end on
+
+type m_articulosrep from m_tppsoftbase`m_articulosrep within m_reportes
+end type
+
+on m_articulosrep.create
+call super::create
+end on
+
+on m_articulosrep.destroy
+call super::destroy
+end on
+
+type m_liquidacionporisla from m_tppsoftbase`m_liquidacionporisla within m_articulosrep
+end type
+
+on m_liquidacionporisla.create
+call super::create
+end on
+
+on m_liquidacionporisla.destroy
+call super::destroy
+end on
+
+type m_stockdeotrosarticulos from m_tppsoftbase`m_stockdeotrosarticulos within m_articulosrep
+end type
+
+on m_stockdeotrosarticulos.create
+call super::create
+end on
+
+on m_stockdeotrosarticulos.destroy
+call super::destroy
+end on
+
+type m_stockdecombustibles from m_tppsoftbase`m_stockdecombustibles within m_articulosrep
+end type
+
+on m_stockdecombustibles.create
+call super::create
+end on
+
+on m_stockdecombustibles.destroy
+call super::destroy
+end on
+
+type m_kardex from m_tppsoftbase`m_kardex within m_articulosrep
+end type
+
+on m_kardex.create
+call super::create
+end on
+
+on m_kardex.destroy
+call super::destroy
+end on
+
+type m_-9 from m_tppsoftbase`m_-9 within m_articulosrep
+end type
+
+on m_-9.create
+call super::create
+end on
+
+on m_-9.destroy
+call super::destroy
+end on
+
+type m_ingresoscompras from m_tppsoftbase`m_ingresoscompras within m_articulosrep
+end type
+
+on m_ingresoscompras.create
+call super::create
+end on
+
+on m_ingresoscompras.destroy
+call super::destroy
+end on
+
+type m_detalladas from m_tppsoftbase`m_detalladas within m_ingresoscompras
+end type
+
+on m_detalladas.create
+call super::create
+end on
+
+on m_detalladas.destroy
+call super::destroy
+end on
+
+type m_comprasxarticulo from m_tppsoftbase`m_comprasxarticulo within m_ingresoscompras
+end type
+
+on m_comprasxarticulo.create
+call super::create
+end on
+
+on m_comprasxarticulo.destroy
+call super::destroy
+end on
+
+type m_comprasxproveedor from m_tppsoftbase`m_comprasxproveedor within m_ingresoscompras
+end type
+
+on m_comprasxproveedor.create
+call super::create
+end on
+
+on m_comprasxproveedor.destroy
+call super::destroy
+end on
+
+type m_salidasoventas from m_tppsoftbase`m_salidasoventas within m_articulosrep
+end type
+
+on m_salidasoventas.create
+call super::create
+end on
+
+on m_salidasoventas.destroy
+call super::destroy
+end on
+
+type m_detallada from m_tppsoftbase`m_detallada within m_salidasoventas
+end type
+
+on m_detallada.create
+call super::create
+end on
+
+on m_detallada.destroy
+call super::destroy
+end on
+
+type m_ventasxarticulo from m_tppsoftbase`m_ventasxarticulo within m_salidasoventas
+end type
+
+on m_ventasxarticulo.create
+call super::create
+end on
+
+on m_ventasxarticulo.destroy
+call super::destroy
+end on
+
+type m_ventasxgrifero from m_tppsoftbase`m_ventasxgrifero within m_salidasoventas
+end type
+
+on m_ventasxgrifero.create
+call super::create
+end on
+
+on m_ventasxgrifero.destroy
+call super::destroy
+end on
+
+type m_ventasxcontometro from m_tppsoftbase`m_ventasxcontometro within m_salidasoventas
+end type
+
+on m_ventasxcontometro.create
+call super::create
+end on
+
+on m_ventasxcontometro.destroy
+call super::destroy
+end on
+
+type m_cliente from m_tppsoftbase`m_cliente within m_reportes
+end type
+
+on m_cliente.create
+call super::create
+end on
+
+on m_cliente.destroy
+call super::destroy
+end on
+
+type m_estadodecuenta from m_tppsoftbase`m_estadodecuenta within m_cliente
+end type
+
+on m_estadodecuenta.create
+call super::create
+end on
+
+on m_estadodecuenta.destroy
+call super::destroy
+end on
+
+type m_morosos from m_tppsoftbase`m_morosos within m_cliente
+end type
+
+on m_morosos.create
+call super::create
+end on
+
+on m_morosos.destroy
+call super::destroy
+end on
+
+type m_ventasdetalladas from m_tppsoftbase`m_ventasdetalladas within m_cliente
+end type
+
+on m_ventasdetalladas.create
+call super::create
+end on
+
+on m_ventasdetalladas.destroy
+call super::destroy
+end on
+
+type m_resumendedeudas from m_tppsoftbase`m_resumendedeudas within m_cliente
+end type
+
+on m_resumendedeudas.create
+call super::create
+end on
+
+on m_resumendedeudas.destroy
+call super::destroy
+end on
+
+type m_proveedores1 from m_tppsoftbase`m_proveedores1 within m_reportes
+end type
+
+on m_proveedores1.create
+call super::create
+end on
+
+on m_proveedores1.destroy
+call super::destroy
+end on
+
+type m_estadodecuenta0 from m_tppsoftbase`m_estadodecuenta0 within m_proveedores1
+end type
+
+on m_estadodecuenta0.create
+call super::create
+end on
+
+on m_estadodecuenta0.destroy
+call super::destroy
+end on
+
+type m_comprasdetalladas from m_tppsoftbase`m_comprasdetalladas within m_proveedores1
+end type
+
+on m_comprasdetalladas.create
+call super::create
+end on
+
+on m_comprasdetalladas.destroy
+call super::destroy
+end on
+
+type m_resumendedeudas0 from m_tppsoftbase`m_resumendedeudas0 within m_proveedores1
+end type
+
+on m_resumendedeudas0.create
+call super::create
+end on
+
+on m_resumendedeudas0.destroy
+call super::destroy
+end on
+
+type m_sistema from m_tppsoftbase`m_sistema within m_tppsoftmanto
+end type
+
+on m_sistema.create
+call super::create
+end on
+
+on m_sistema.destroy
+call super::destroy
+end on
+
+type m_usuarios from m_tppsoftbase`m_usuarios within m_sistema
+end type
+
+on m_usuarios.create
+call super::create
+end on
+
+on m_usuarios.destroy
+call super::destroy
+end on
+
+type m_bancos from m_tppsoftbase`m_bancos within m_sistema
+end type
+
+on m_bancos.create
+call super::create
+end on
+
+on m_bancos.destroy
+call super::destroy
+end on
+
+type m_moneda from m_tppsoftbase`m_moneda within m_sistema
+end type
+
+on m_moneda.create
+call super::create
+end on
+
+on m_moneda.destroy
+call super::destroy
+end on
+
+type m_tipodecambio from m_tppsoftbase`m_tipodecambio within m_sistema
+end type
+
+on m_tipodecambio.create
+call super::create
+end on
+
+on m_tipodecambio.destroy
+call super::destroy
+end on
+
+type m_impuestos from m_tppsoftbase`m_impuestos within m_sistema
+end type
+
+on m_impuestos.create
+call super::create
+end on
+
+on m_impuestos.destroy
+call super::destroy
+end on
+
+type m_tiposdeimpuestos from m_tppsoftbase`m_tiposdeimpuestos within m_impuestos
+end type
+
+on m_tiposdeimpuestos.create
+call super::create
+end on
+
+on m_tiposdeimpuestos.destroy
+call super::destroy
+end on
+
+type m_vigenciadeimpuestos from m_tppsoftbase`m_vigenciadeimpuestos within m_impuestos
+end type
+
+on m_vigenciadeimpuestos.create
+call super::create
+end on
+
+on m_vigenciadeimpuestos.destroy
+call super::destroy
+end on
+
+type m_unidad from m_tppsoftbase`m_unidad within m_sistema
+end type
+
+on m_unidad.create
+call super::create
+this.toolbaritemvisible = false
+end on
+
+on m_unidad.destroy
+call super::destroy
+end on
+
+type m_entidades from m_tppsoftbase`m_entidades within m_sistema
+end type
+
+on m_entidades.create
+call super::create
+this.toolbaritemvisible = false
+end on
+
+on m_entidades.destroy
+call super::destroy
+end on
+
+type m_empresas from m_tppsoftbase`m_empresas within m_sistema
+end type
+
+on m_empresas.create
+call super::create
+end on
+
+on m_empresas.destroy
+call super::destroy
+end on
+
+type m_parametrosdeentidadporempresa from m_tppsoftbase`m_parametrosdeentidadporempresa within m_sistema
+end type
+
+on m_parametrosdeentidadporempresa.create
+call super::create
+this.toolbaritemvisible = false
+end on
+
+on m_parametrosdeentidadporempresa.destroy
+call super::destroy
+end on
+
+type m_estadodeoperaciones from m_tppsoftbase`m_estadodeoperaciones within m_sistema
+end type
+
+on m_estadodeoperaciones.create
+call super::create
+end on
+
+on m_estadodeoperaciones.destroy
+call super::destroy
+end on
+
+type m_estadomensualdeoperaciones from m_tppsoftbase`m_estadomensualdeoperaciones within m_sistema
+end type
+
+on m_estadomensualdeoperaciones.create
+call super::create
+end on
+
+on m_estadomensualdeoperaciones.destroy
+call super::destroy
+end on
+
+type m_selecionarempresa from m_tppsoftbase`m_selecionarempresa within m_sistema
+end type
+
+on m_selecionarempresa.create
+call super::create
+this.toolbaritemvisible = false
+end on
+
+on m_selecionarempresa.destroy
+call super::destroy
+end on
+
+type m_cambiarfechadetrabajo from m_tppsoftbase`m_cambiarfechadetrabajo within m_sistema
+end type
+
+on m_cambiarfechadetrabajo.create
+call super::create
+end on
+
+on m_cambiarfechadetrabajo.destroy
+call super::destroy
+end on
+
+type m_ventana from m_tppsoftbase`m_ventana within m_tppsoftmanto
+end type
+
+on m_ventana.create
+call super::create
+this.toolbaritemvisible = false
+end on
+
+on m_ventana.destroy
+call super::destroy
+end on
+
+type m_vertical from m_tppsoftbase`m_vertical within m_ventana
+end type
+
+on m_vertical.create
+call super::create
+this.toolbaritemvisible = false
+end on
+
+on m_vertical.destroy
+call super::destroy
+end on
+
+type m_horizontal from m_tppsoftbase`m_horizontal within m_ventana
+end type
+
+on m_horizontal.create
+call super::create
+this.toolbaritemvisible = false
+end on
+
+on m_horizontal.destroy
+call super::destroy
+end on
+
+type m_actual from m_tppsoftbase`m_actual within m_ventana
+end type
+
+on m_actual.create
+call super::create
+this.toolbaritemvisible = false
+end on
+
+on m_actual.destroy
+call super::destroy
+end on
+
+type m_cascada from m_tppsoftbase`m_cascada within m_ventana
+end type
+
+on m_cascada.create
+call super::create
+this.toolbaritemvisible = false
+end on
+
+on m_cascada.destroy
+call super::destroy
+end on
+
+type m_utilitarios from m_tppsoftbase`m_utilitarios within m_tppsoftmanto
+end type
+
+on m_utilitarios.create
+call super::create
+end on
+
+on m_utilitarios.destroy
+call super::destroy
+end on
+
+type m_directorio from m_tppsoftbase`m_directorio within m_utilitarios
+end type
+
+on m_directorio.create
+call super::create
+this.toolbaritemvisible = false
+end on
+
+on m_directorio.destroy
+call super::destroy
+end on
+
+type m_calculadora from m_tppsoftbase`m_calculadora within m_utilitarios
+end type
+
+on m_calculadora.create
+call super::create
+this.visible = false
+this.enabled = false
+this.toolbaritemvisible = false
+end on
+
+on m_calculadora.destroy
+call super::destroy
+end on
+
+type m_winamp from m_tppsoftbase`m_winamp within m_utilitarios
+end type
+
+on m_winamp.create
+call super::create
+this.toolbaritemvisible = false
+end on
+
+on m_winamp.destroy
+call super::destroy
+end on
+
+type m_cambiodeclave from m_tppsoftbase`m_cambiodeclave within m_utilitarios
+end type
+
+on m_cambiodeclave.create
+call super::create
+this.visible = false
+this.enabled = false
+this.toolbaritemvisible = false
+end on
+
+on m_cambiodeclave.destroy
+call super::destroy
+end on
+
+type m_facturaboletasvales from m_tppsoftbase`m_facturaboletasvales within m_utilitarios
+end type
+
+on m_facturaboletasvales.create
+call super::create
+this.visible = false
+this.enabled = false
+this.toolbaritemvisible = false
+end on
+
+on m_facturaboletasvales.destroy
+call super::destroy
+end on
+
+type m_actualizarcostos from m_tppsoftbase`m_actualizarcostos within m_utilitarios
+end type
+
+on m_actualizarcostos.create
+call super::create
+this.visible = false
+this.enabled = false
+this.toolbaritemvisible = false
+end on
+
+on m_actualizarcostos.destroy
+call super::destroy
+end on
+
+type m_reporte from m_tppsoftbase`m_reportes within m_reportes
+end type
+
+on m_reporte.create
+call super::create
+end on
+
+on m_reporte.destroy
+call super::destroy
+end on
+

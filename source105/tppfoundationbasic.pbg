@@ -3,9 +3,4 @@ Save Format v3.0(19990112)
  "tppfoundationbasic.pbl" "";
 @end;
 @begin Objects
- "uf_inicializacion.srf" "tppfoundationbasic.pbl";
- "m_tppsoftbasenew.srm" "tppfoundationbasic.pbl";
- "m_tppsoftbase.srm" "tppfoundationbasic.pbl";
- "m_tppsoftmantoprocess.srm" "tppfoundationbasic.pbl";
- "m_tppsoftmanto.srm" "tppfoundationbasic.pbl";
 @end;

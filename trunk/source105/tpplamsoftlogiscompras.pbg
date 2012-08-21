@@ -1,0 +1,22 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "tpplamsoftlogiscompras.pbl" "";
+@end;
+@begin Objects
+ "d_fraccion_dddw_bak.srd" "tpplamsoftlogiscompras.pbl";
+ "d_compradetalle_fila.srd" "tpplamsoftlogiscompras.pbl";
+ "d_cotizacion_cab.srd" "tpplamsoftlogiscompras.pbl";
+ "d_movimientotipo_dddw.srd" "tpplamsoftlogiscompras.pbl";
+ "d_compra_cab.srd" "tpplamsoftlogiscompras.pbl";
+ "d_compradetalle.srd" "tpplamsoftlogiscompras.pbl";
+ "d_cotizacion_det.srd" "tpplamsoftlogiscompras.pbl";
+ "d_ordencompra_lista.srd" "tpplamsoftlogiscompras.pbl";
+ "d_cotizacion_lista.srd" "tpplamsoftlogiscompras.pbl";
+ "d_compra_det.srd" "tpplamsoftlogiscompras.pbl";
+ "w_process_compra.srw" "tpplamsoftlogiscompras.pbl";
+ "d_compra_lista.srd" "tpplamsoftlogiscompras.pbl";
+ "d_pedido_lista.srd" "tpplamsoftlogiscompras.pbl";
+ "d_compra_manto.srd" "tpplamsoftlogiscompras.pbl";
+ "w_process_compradetalle.srw" "tpplamsoftlogiscompras.pbl";
+ "d_compra.srd" "tpplamsoftlogiscompras.pbl";
+@end;

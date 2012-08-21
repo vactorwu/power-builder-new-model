@@ -1,0 +1,20 @@
+HA$PBExportHeader$uf_datework.srf
+global type uf_datework from function_object
+end type
+
+forward prototypes
+global function datetime uf_datework ()
+end prototypes
+
+global function datetime uf_datework ();
+DateTime ldt_fecha
+
+IF gn_config.is_work.FechasIguales THEN
+	SELECT DISTINCT GetDate() INTO :Ldt_Fecha FROM Sysusers USING SQLCA ;
+ELSE
+	Ldt_Fecha = DateTime( gn_config.is_work.FechaSistema ,Now())
+END IF
+
+RETURN Ldt_Fecha 
+end function
+

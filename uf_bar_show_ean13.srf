@@ -1,0 +1,14 @@
+HA$PBExportHeader$uf_bar_show_ean13.srf
+global type uf_bar_show_ean13 from function_object
+end type
+
+forward prototypes
+global function string uf_bar_show_ean13 (string as_valor)
+end prototypes
+
+global function string uf_bar_show_ean13 (string as_valor);String ls_bar
+ls_bar = uf_bar_conver_ean13(uf_bar_ean13(as_valor))
+Return ls_bar
+
+end function
+

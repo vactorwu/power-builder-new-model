@@ -1,0 +1,7 @@
+HA$PBExportHeader$us_ddkeysrch.srs
+global type us_ddkeysrch from structure
+	string		textcol
+	string		datacol
+	string		dw
+end type
+

@@ -1,0 +1,9 @@
+HA$PBExportHeader$s_select.srs
+$PBExportComments$estructura de la aplicaci$$HEX1$$f300$$ENDHEX$$n del sistema.
+global type s_select from structure
+	string		empresa
+	string		sucursal
+	string		almacen
+	string		tabla
+end type
+

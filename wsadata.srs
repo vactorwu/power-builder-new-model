@@ -1,0 +1,11 @@
+HA$PBExportHeader$wsadata.srs
+global type wsadata from structure
+	long		wVersion
+	long		wHighVersion
+	character		szDescription[257]
+	character		szSystemStatus[129]
+	integer		iMaxSockets
+	integer		iMaxUdpDg
+	long		lpVendorInfo
+end type
+

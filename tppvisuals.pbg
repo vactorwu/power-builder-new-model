@@ -1,0 +1,43 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "tppvisuals.pbl" "";
+@end;
+@begin Objects
+ "dw_ancestor.sru" "tppvisuals.pbl";
+ "w_center.srw" "tppvisuals.pbl";
+ "u_sle.sru" "tppvisuals.pbl";
+ "uo_navi.sru" "tppvisuals.pbl";
+ "w_base.srw" "tppvisuals.pbl";
+ "w_manto.srw" "tppvisuals.pbl";
+ "w_class.srw" "tppvisuals.pbl";
+ "u_cbx.sru" "tppvisuals.pbl";
+ "u_cb.sru" "tppvisuals.pbl";
+ "u_dw.sru" "tppvisuals.pbl";
+ "u_em.sru" "tppvisuals.pbl";
+ "u_gb.sru" "tppvisuals.pbl";
+ "u_lb.sru" "tppvisuals.pbl";
+ "u_mc.sru" "tppvisuals.pbl";
+ "u_p.sru" "tppvisuals.pbl";
+ "u_pb.sru" "tppvisuals.pbl";
+ "u_rb.sru" "tppvisuals.pbl";
+ "u_st.sru" "tppvisuals.pbl";
+ "uo_comctl_progressbar.sru" "tppvisuals.pbl";
+ "d_columnasdddw.srd" "tppvisuals.pbl";
+ "uo_comctl_statusbar.sru" "tppvisuals.pbl";
+ "uo_navegacion.sru" "tppvisuals.pbl";
+ "d_valordddw.srd" "tppvisuals.pbl";
+ "st_uo_transparent.sru" "tppvisuals.pbl";
+ "uo_cb_transparent.sru" "tppvisuals.pbl";
+ "uo_calendario.sru" "tppvisuals.pbl";
+ "uo_sle_transparent.sru" "tppvisuals.pbl";
+ "w_pruebacode.srw" "tppvisuals.pbl";
+ "d_util_filtro.srd" "tppvisuals.pbl";
+ "u_cb_cancel.sru" "tppvisuals.pbl";
+ "w_classbak.srw" "tppvisuals.pbl";
+ "ou_crviewer.sru" "tppvisuals.pbl";
+ "uo_crviewer.sru" "tppvisuals.pbl";
+ "u_pbcalc.sru" "tppvisuals.pbl";
+ "uo_lb_sortby.sru" "tppvisuals.pbl";
+ "w_response.srw" "tppvisuals.pbl";
+ "w_process.srw" "tppvisuals.pbl";
+@end;

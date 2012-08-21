@@ -1,0 +1,39 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "tpplamsoft.pbl" "";
+@end;
+@begin Objects
+ "w_barras.srw" "tpplamsoft.pbl";
+ "d_pru.srd" "tpplamsoft.pbl";
+ "w_filtro.srw" "tpplamsoft.pbl";
+ "d_eliminar1.srd" "tpplamsoft.pbl";
+ "w_secur.srw" "tpplamsoft.pbl";
+ "w_query.srw" "tpplamsoft.pbl";
+ "w_selecion_fecha.srw" "tpplamsoft.pbl";
+ "w_prueba1.srw" "tpplamsoft.pbl";
+ "w_prueba2.srw" "tpplamsoft.pbl";
+ "d_pruebas_oracle.srd" "tpplamsoft.pbl";
+ "d_seleccion_empresa.srd" "tpplamsoft.pbl";
+ "d_imagen_prueba.srd" "tpplamsoft.pbl";
+ "p_tpplamsoft_exe.srj" "tpplamsoft.pbl";
+ "d_pruebas_borrar.srd" "tpplamsoft.pbl";
+ "w_ventana_fondo.srw" "tpplamsoft.pbl";
+ "w_selecion_empresa.srw" "tpplamsoft.pbl";
+ "w_perieba_ole.srw" "tpplamsoft.pbl";
+ "w_crystal_prueba.srw" "tpplamsoft.pbl";
+ "d_pruebas_sql.srd" "tpplamsoft.pbl";
+ "w_prueba_resize.srw" "tpplamsoft.pbl";
+ "d_linea_form.srd" "tpplamsoft.pbl";
+ "d_pruebas_oracle2.srd" "tpplamsoft.pbl";
+ "w_ingresoseguro.srw" "tpplamsoft.pbl";
+ "w_message.srw" "tpplamsoft.pbl";
+ "d_eliminar.srd" "tpplamsoft.pbl";
+ "d_pru_ora.srd" "tpplamsoft.pbl";
+ "m_tppsoftini.srm" "tpplamsoft.pbl";
+ "tpplamsoft.sra" "tpplamsoft.pbl";
+ "w_util_filtro.srw" "tpplamsoft.pbl";
+ "w_prueba.srw" "tpplamsoft.pbl";
+ "d_pru_sql.srd" "tpplamsoft.pbl";
+ "w_pruebafoto.srw" "tpplamsoft.pbl";
+ "w_frame.srw" "tpplamsoft.pbl";
+@end;

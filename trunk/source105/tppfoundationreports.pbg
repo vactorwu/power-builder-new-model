@@ -1,0 +1,18 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "tppfoundationreports.pbl" "";
+@end;
+@begin Objects
+ "w_print_zoom.srw" "tppfoundationreports.pbl";
+ "w_print.srw" "tppfoundationreports.pbl";
+ "w_mail.srw" "tppfoundationreports.pbl";
+ "w_rep.srw" "tppfoundationreports.pbl";
+ "d_printers_dddw.srd" "tppfoundationreports.pbl";
+ "f_mail_error_to_string.srf" "tppfoundationreports.pbl";
+ "w_print_scale.srw" "tppfoundationreports.pbl";
+ "w_crystalpb.srw" "tppfoundationreports.pbl";
+ "d_printers.srd" "tppfoundationreports.pbl";
+ "s_printer.srs" "tppfoundationreports.pbl";
+ "n_printer.sru" "tppfoundationreports.pbl";
+ "w_reporte.srw" "tppfoundationreports.pbl";
+@end;

@@ -3,8 +3,4 @@ Save Format v3.0(19990112)
  "tpplamsoftutils.pbl" "";
 @end;
 @begin Objects
- "d_empresa_ddlbdw.srd" "tpplamsoftutils.pbl";
- "d_columna_dddw.srd" "tpplamsoftutils.pbl";
- "d_calendar.srd" "tpplamsoftutils.pbl";
- "d_dddw_mes.srd" "tpplamsoftutils.pbl";
 @end;

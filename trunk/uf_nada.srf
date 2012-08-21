@@ -1,0 +1,11 @@
+HA$PBExportHeader$uf_nada.srf
+global type uf_nada from function_object
+end type
+
+forward prototypes
+global subroutine uf_nada (string as_prueba)
+end prototypes
+
+global subroutine uf_nada (string as_prueba);as_prueba = ""
+end subroutine
+

@@ -1,0 +1,18 @@
+HA$PBExportHeader$uf_newid.srf
+global type uf_newid from function_object
+end type
+
+forward prototypes
+global function string uf_newid ()
+end prototypes
+
+global function string uf_newid ();
+string ls_GUID
+long ll_result, result
+
+ll_result = PBObjectNewid.GenerateGUID(REF ls_GUID)
+
+return ls_guid
+
+end function
+

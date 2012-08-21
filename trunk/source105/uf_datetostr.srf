@@ -1,0 +1,20 @@
+HA$PBExportHeader$uf_datetostr.srf
+global type uf_datetostr from function_object
+end type
+
+forward prototypes
+global function string uf_datetostr (date as_date)
+end prototypes
+
+global function string uf_datetostr (date as_date);String ls_dia,ls_mes,ls_year,ls_Fecha
+
+ls_year = String(year( as_date ))
+ls_mes  = String(Month( as_date ))
+ls_mes = Mid('00',1, 2 - len(ls_mes)) + String(Integer(ls_mes))
+
+ls_dia  = String(day( as_date ))
+ls_dia = Mid('00',1, 2 - len(ls_dia)) + String(Integer(ls_dia))
+ls_fecha = "'"+ls_dia+"/"+ls_mes+"/"+ls_year+"'"
+Return ls_fecha
+end function
+

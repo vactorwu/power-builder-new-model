@@ -1,0 +1,89 @@
+HA$PBExportHeader$uf_diafecha.srf
+global type uf_diafecha from function_object
+end type
+
+forward prototypes
+global function string uf_diafecha (string parametro, string tipo)
+end prototypes
+
+global function string uf_diafecha (string parametro, string tipo);String ls_Dia,ls_Mes,ls_Fecha,ls_Retorno
+Date ld_Fecha
+Time lt_Hora
+DateTime ldt_FechaHora
+
+IF Upper(Tipo) = 'LOCAL' OR Upper(Tipo) = 'PC' THEN
+	 ld_Fecha 	= ld_Fecha
+	 lt_Hora 		= Now()
+	 ldt_FechaHora = DateTime(ld_Fecha,lt_Hora)
+ELSEIF Upper(Tipo) = 'WORK' OR Upper(Tipo) = 'TRABAJO'  THEN
+	 ld_Fecha 		= gn_config.is_work.fechatrabajo
+	 lt_Hora 		= Now()
+	 ldt_FechaHora = DateTime(ld_Fecha,lt_Hora)
+ELSE
+	 ldt_FechaHora = uf_datetime()
+	 ld_Fecha 		= Date(ldt_FechaHora)
+	 lt_Hora 		= Time(ldt_FechaHora)
+END IF
+
+	CHOOSE CASE string(dayname(ld_Fecha))
+		CASE "Monday"
+			ls_Dia = "Lunes"
+		CASE "Tuesday"
+			ls_Dia = "Martes"
+		CASE "Wednesday"
+			ls_Dia = "Miercoles"
+		CASE "Thursday"
+			ls_Dia = "Jueves"
+		CASE "Friday"
+			ls_Dia = "Viernes"
+		CASE "Saturday"
+			ls_Dia = "S$$HEX1$$e100$$ENDHEX$$bado"
+		CASE "Sunday"
+			ls_Dia = "Domingo"
+	END CHOOSE
+
+	CHOOSE CASE Month(ld_Fecha)
+		CASE 1
+			ls_Mes = "Enero"
+		CASE 2
+			ls_Mes = "Febrero"
+		CASE 3
+			ls_Mes = "Marzo"
+		CASE 4
+			ls_Mes = "Abril"
+		CASE 5
+			ls_Mes = "Mayo"
+		CASE 6
+			ls_Mes = "Junio"
+		CASE 7
+			ls_Mes = "Julio"
+		CASE 8
+			ls_Mes = "Agosto"
+		CASE 9
+			ls_Mes = "Septiempre"
+		CASE 10
+			ls_Mes = "Octubre"
+		CASE 11
+			ls_Mes = "Noviembre"
+		CASE 12
+			ls_Mes = "Diciembre"
+	END CHOOSE
+	
+	ls_Fecha = String(Day(ld_Fecha))+" de "+ls_Mes+" de "+String(Year(ld_Fecha))
+
+
+	CHOOSE CASE Upper(Parametro)
+		CASE "DIA"
+			ls_Retorno = ls_Dia
+		CASE "FECHA"
+			ls_Retorno = ls_Fecha
+		CASE "DIAFECHA","FECHADIA"
+			ls_Retorno= ls_Dia+", "+ls_Fecha
+		CASE ELSE 
+			ls_Retorno = String(ld_Fecha,Parametro)
+	END CHOOSE
+
+Return ls_Retorno
+
+end function
+

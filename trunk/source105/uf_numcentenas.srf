@@ -1,0 +1,40 @@
+HA$PBExportHeader$uf_numcentenas.srf
+global type uf_numcentenas from function_object
+end type
+
+forward prototypes
+global function string uf_numcentenas (string numero)
+end prototypes
+
+global function string uf_numcentenas (string numero);CHOOSE CASE left(numero,1)
+   CASE '0'
+    return uf_numdecenas(mid(numero,2,2))
+   CASE '1'
+    IF numero='100' then
+     return 'cien'
+    else
+     return 'ciento '+uf_numdecenas(mid(numero,2,2))
+    end if
+	CASE '2'
+    return 'doscientos '+uf_numdecenas(mid(numero,2,2))
+   CASE '3'
+    return 'trecientos '+uf_numdecenas(mid(numero,2,2))
+   CASE '4'
+    return 'cuatrocientos '+uf_numdecenas(mid(numero,2,2))
+   CASE '5'
+    return 'quinientos '+uf_numdecenas(mid(numero,2,2))
+	CASE '6'
+    return 'seiscientos '+uf_numdecenas(mid(numero,2,2))
+	CASE '7'
+    return 'setecientos '+uf_numdecenas(mid(numero,2,2))
+   CASE '8'
+    return 'ochocientos '+uf_numdecenas(mid(numero,2,2))
+   CASE '9'
+    return 'novecientos '+uf_numdecenas(mid(numero,2,2))
+   CASE ELSE
+    return uf_numunidades(integer(left(numero,1)))+' cientos '+ &
+       uf_numdecenas(mid(numero,2,2))
+
+END CHOOSE
+end function
+

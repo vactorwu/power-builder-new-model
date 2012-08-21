@@ -1,0 +1,15 @@
+HA$PBExportHeader$uf_nummiles.srf
+global type uf_nummiles from function_object
+end type
+
+forward prototypes
+global function string uf_nummiles (string numero)
+end prototypes
+
+global function string uf_nummiles (string numero);If integer(left(numero,1)) = 1 then
+	return 'mil '+uf_numcentenas(right(numero,3))
+Else
+	return uf_numunidades(integer(left(numero,1)))+' mil '+uf_numcentenas(right(numero,3))
+End IF
+end function
+

@@ -1,0 +1,57 @@
+HA$PBExportHeader$uf_numletras.srf
+global type uf_numletras from function_object
+end type
+
+forward prototypes
+global function string uf_numletras (long numero)
+end prototypes
+
+global function string uf_numletras (long numero);// Modificaciones:
+//  96.10.21.16:15 (MMHMS) Se le agreg$$HEX2$$f3002000$$ENDHEX$$los case del 6 al 9.
+//  96.10.22.08:50 (MMHMS) El par$$HEX1$$e100$$ENDHEX$$metro que se recibe se puso long,
+//          en lugar de double.
+//
+//------------------------------------------------------------------------
+integer tamano
+String ls_retorna
+tamano = len(string(numero))
+
+CHOOSE CASE tamano
+CASE 1
+  return uf_numunidades(numero)
+CASE 2
+  return uf_numdecenas(string(numero))
+CASE 3
+  return uf_numcentenas(string(numero))
+CASE 4
+  return uf_nummiles(string(numero))
+CASE 5
+  return uf_numdecenas(left(string(numero),2))+' mil '+uf_numcentenas(right(string(numero),3))
+CASE 6
+  return uf_numcentenas(left(string(numero),3))+' mil '+uf_numcentenas(right(string(numero),3))
+CASE 7
+  ls_retorna = uf_numunidades(Integer(left(string(numero),1)))+' mill$$HEX1$$f300$$ENDHEX$$n '
+  IF uf_numcentenas(mid(string(numero),2,3)) <> '' THEN
+   ls_retorna += uf_numcentenas(mid(string(numero),2,3))+' mil '
+  END IF
+  ls_retorna += uf_numcentenas(right(string(numero),3))
+  return ls_retorna
+CASE 8
+  ls_retorna = uf_numdecenas(left(string(numero),2))+' millones '
+  IF uf_numcentenas(mid(string(numero),2,3)) <> '' THEN
+   ls_retorna += uf_numcentenas(mid(string(numero),2,3))+' mil '
+  END IF
+  ls_retorna += uf_numcentenas(right(string(numero),3))
+  return ls_retorna
+CASE 9 
+  ls_retorna = uf_numcentenas(left(string(numero),3))+' millones '
+  IF uf_numcentenas(mid(string(numero),2,3)) <> '' THEN
+   ls_retorna += uf_numcentenas(mid(string(numero),2,3))+' mil '
+  END IF
+  ls_retorna += uf_numcentenas(right(string(numero),3))
+  return ls_retorna
+END CHOOSE
+
+
+end function
+

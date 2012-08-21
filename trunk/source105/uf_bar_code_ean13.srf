@@ -1,0 +1,50 @@
+HA$PBExportHeader$uf_bar_code_ean13.srf
+global type uf_bar_code_ean13 from function_object
+end type
+
+forward prototypes
+global function any uf_bar_code_ean13 (string codigo)
+end prototypes
+
+global function any uf_bar_code_ean13 (string codigo);//Digito de Verificacion
+string Verificado 
+string A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11,A12,A13
+int N1,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,N12,N13
+INT TOTAL, RESIDUO
+
+if len(codigo) = 12 then
+	A1	=MID(codigo,1,1)
+	A2	=MID(codigo,2,1)
+	A3	=MID(codigo,3,1)
+	A4	=MID(codigo,4,1)
+	A5	=MID(codigo,5,1)
+	A6	=MID(codigo,6,1)
+	A7	=MID(codigo,7,1)
+	A8	=MID(codigo,8,1)
+	A9	=MID(codigo,9,1)
+	A10=MID(codigo,10,1)	
+	A11=MID(codigo,11,1)
+	A12=MID(codigo,12,1)
+	//A13=?
+	N1 =INTEGER(A1)
+	N2 =INTEGER(A2)
+	N3	=INTEGER(A3)
+	N4	=INTEGER(A4)
+	N5	=INTEGER(A5)
+	N6	=INTEGER(A6)
+	N7	=INTEGER(A7)
+	N8	=INTEGER(A8)
+	N9	=INTEGER(A9)
+	N10=INTEGER(A10)
+	N11=INTEGER(A11)
+	N12=INTEGER(A12)
+
+	TOTAL = (N1)+(N2*3)+(N3)+(N4*3)+(N5)+(N6*3)+(N7)+(N8*3)+(N9)+(N10*3)+(N11)+(N12*3)
+	RESIDUO = MOD(TOTAL,10) 
+	N13 = 10 - RESIDUO
+	Verificado = codigo+string(N13)
+end if
+
+return Verificado
+end function
+

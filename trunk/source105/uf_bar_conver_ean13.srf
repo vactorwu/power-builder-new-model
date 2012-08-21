@@ -1,0 +1,83 @@
+HA$PBExportHeader$uf_bar_conver_ean13.srf
+global type uf_bar_conver_ean13 from function_object
+end type
+
+forward prototypes
+global function any uf_bar_conver_ean13 (string verificado)
+end prototypes
+
+global function any uf_bar_conver_ean13 (string verificado);//Digito de Verificacion
+
+string Codificacion, A1, Izquierda, Derecha
+int N1,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,N12,N13
+string Ean13_bar
+constant String Inicio ="%"
+constant String Centro ="&"
+constant String Final  ="'"
+constant Integer A  = 49
+constant Integer B  = 59
+constant Integer C  = 69
+
+if len(Verificado) = 13 then
+	//NUMERO A VER DELANTE
+	A1	=MID(Verificado,1,1)
+	//MITAD IZQUIERDA
+	N2 =ASC(MID(Verificado,2,1))
+	N3	=ASC(MID(Verificado,3,1))
+	N4	=ASC(MID(Verificado,4,1))
+	N5	=ASC(MID(Verificado,5,1))
+	N6	=ASC(MID(Verificado,6,1))
+	N7	=ASC(MID(Verificado,7,1))
+	//MITAD DERECHA
+	N8	=ASC(MID(Verificado,8,1))
+	N9	=ASC(MID(Verificado,9,1))
+	N10=ASC(MID(Verificado,10,1))
+	N11=ASC(MID(Verificado,11,1))
+	N12=ASC(MID(Verificado,12,1))
+	N13=ASC(MID(Verificado,13,1))
+	//MITAD DERECHA CONVERTIDA
+	Derecha 	= CHAR(N8+C)+CHAR(N9+C)+CHAR(N10+C)+CHAR(N11+C)+CHAR(N12+C)+CHAR(N13+C)
+choose case A1
+	case '0'
+		Codificacion = "AAAAAACCCCCC"
+		Izquierda= CHAR(N2+A)+CHAR(N3+A)+CHAR(N4+A)+CHAR(N5+A)+CHAR(N6+A)+CHAR(N7+A)
+	case '1'
+		Codificacion = "AABABBCCCCCC"
+		Izquierda= CHAR(N2+A)+CHAR(N3+A)+CHAR(N4+B)+CHAR(N5+A)+CHAR(N6+B)+CHAR(N7+B)
+	case '2'
+		Codificacion = "AABBABCCCCCC"
+		Izquierda= CHAR(N2+A)+CHAR(N3+A)+CHAR(N4+B)+CHAR(N5+B)+CHAR(N6+A)+CHAR(N7+B)
+	case '3'
+		Codificacion = "AABBBACCCCCC"
+		Izquierda= CHAR(N2+A)+CHAR(N3+A)+CHAR(N4+B)+CHAR(N5+B)+CHAR(N6+B)+CHAR(N7+A)
+	case '4'
+		Codificacion = "ABAABBCCCCCC"
+		Izquierda= CHAR(N2+A)+CHAR(N3+B)+CHAR(N4+A)+CHAR(N5+A)+CHAR(N6+B)+CHAR(N7+B)
+	case '5'
+		Codificacion = "ABBAABCCCCCC"
+		Izquierda= CHAR(N2+A)+CHAR(N3+B)+CHAR(N4+B)+CHAR(N5+A)+CHAR(N6+A)+CHAR(N7+B)
+	case '6'
+		Codificacion = "ABBBAACCCCCC"
+		Izquierda= CHAR(N2+A)+CHAR(N3+B)+CHAR(N4+B)+CHAR(N5+B)+CHAR(N6+A)+CHAR(N7+A)
+	case '7'
+		Codificacion = "ABABABCCCCCC"
+		Izquierda= CHAR(N2+A)+CHAR(N3+B)+CHAR(N4+A)+CHAR(N5+B)+CHAR(N6+A)+CHAR(N7+B)
+	case '8'
+		Codificacion = "ABABBACCCCCC"
+		Izquierda= CHAR(N2+A)+CHAR(N3+B)+CHAR(N4+B)+CHAR(N5+B)+CHAR(N6+A)+CHAR(N7+A)
+	case '9'
+		Codificacion = "ABBABACCCCCC"	
+		Izquierda= CHAR(N2+A)+CHAR(N3+B)+CHAR(N4+B)+CHAR(N5+A)+CHAR(N6+B)+CHAR(N7+A)
+end choose
+	
+End if
+			//
+			// 1     %			AAAAAA		  &	  CCCCCC	 	  '
+Ean13_bar = A1 + Inicio + Izquierda + Centro + Derecha + Final
+
+return Ean13_bar
+
+
+
+end function
+

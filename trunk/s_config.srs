@@ -1,0 +1,18 @@
+HA$PBExportHeader$s_config.srs
+global type s_config from structure
+	integer		licencias
+	string		hostname
+	string		mac
+	string		ip
+	string		logo
+	string		usuario
+	string		password
+	string		empresa
+	string		autogenerado
+	string		clave
+	string		ruc
+	boolean		cabecera
+	boolean		detalle
+	boolean		hay_items
+end type
+

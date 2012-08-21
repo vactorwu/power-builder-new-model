@@ -1,0 +1,18 @@
+HA$PBExportHeader$st_objetos.srs
+global type st_objetos from structure
+	long		handlepadre[]
+	long		handleactual[]
+	long		uid[]
+	string		servidor[]
+	string		basedatos[]
+	string		tipoobjeto[]
+	string		nombre[]
+	string		nombresesion[]
+	integer		acceso[]
+	integer		tipo[]
+	string		grupo[]
+	string		propietario[]
+	datetime		creacion[]
+	any		data[]
+end type
+

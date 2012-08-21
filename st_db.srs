@@ -1,0 +1,11 @@
+HA$PBExportHeader$st_db.srs
+global type st_db from structure
+	string		name[]
+	integer		dbid[]
+	integer		datadbid[]
+	datetime		crdate[]
+	integer		cmptlevel[]
+	string		filename[]
+	long		handle[]
+end type
+

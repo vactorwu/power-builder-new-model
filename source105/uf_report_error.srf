@@ -1,0 +1,32 @@
+HA$PBExportHeader$uf_report_error.srf
+global type uf_report_error from function_object
+end type
+
+forward prototypes
+global subroutine uf_report_error ()
+end prototypes
+
+global subroutine uf_report_error ();STRING OCURRIO, FECHA, HORA, Mensaje
+
+FECHA  = STRING(TODAY())
+HORA   = STRING(NOW())
+OCURRIO = FECHA+"-"+HORA
+
+SetProfileString("ERROR.LOG",OCURRIO,"Error Numero_",string(error.number))
+SetProfileString("ERROR.LOG",OCURRIO,"Error Mensaje",error.text)
+SetProfileString("ERROR.LOG",OCURRIO,"Error Window_",error.windowmenu)
+SetProfileString("ERROR.LOG",OCURRIO,"Error Objeto_",error.object)
+SetProfileString("ERROR.LOG",OCURRIO,"Error Evento_",error.objectevent)
+SetProfileString("ERROR.LOG",OCURRIO,"Error Linea__",string(error.line))
+Mensaje = char(13)+ &
+			 "Error Numero_: "+string(error.number) +char(13)+ &
+			 "Error Mensaje: "+error.text +char(13)+ & 
+			 "Error Window_: "+error.windowmenu +char(13)+ &
+			 "Error Evento_: "+error.objectevent +char(13)+ &
+			 "Error Linea__: "+string(error.line)+char(13)
+
+Messagebox("Advertencia " ,"Se reporto un error del Sistema La Aplicacion Se Cerrara"+Mensaje,Exclamation!)
+
+
+end subroutine
+

@@ -1,0 +1,86 @@
+HA$PBExportHeader$d_linea_form.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=67108864 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=0 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=848 color="536870912" )
+
+table(column=(type=decimal(0) updatewhereclause=yes name=idlinea dbname="LINEA.IDLINEA" )
+ column=(type=char(10) updatewhereclause=yes name=codlinea dbname="LINEA.CODLINEA" )
+ column=(type=decimal(0) updatewhereclause=yes name=idempresa dbname="LINEA.IDEMPRESA" )
+ column=(type=decimal(0) updatewhereclause=yes name=idsublinea dbname="LINEA.IDSUBLINEA" )
+ column=(type=char(10) updatewhereclause=yes name=codsublinea dbname="LINEA.CODSUBLINEA" )
+ column=(type=char(120) updatewhereclause=yes name=nombre dbname="LINEA.NOMBRE" )
+ column=(type=decimal(0) updatewhereclause=yes name=estado dbname="LINEA.ESTADO" )
+ column=(type=datetime updatewhereclause=yes name=fecharegistro dbname="LINEA.FECHAREGISTRO" )
+ column=(type=char(128) updatewhereclause=yes name=estacionregistro dbname="LINEA.ESTACIONREGISTRO" )
+ column=(type=char(30) updatewhereclause=yes name=usuarioregistro dbname="LINEA.USUARIOREGISTRO" )
+ column=(type=datetime updatewhereclause=yes name=fechamodifico dbname="LINEA.FECHAMODIFICO" )
+ column=(type=char(128) updatewhereclause=yes name=estacionmodifico dbname="LINEA.ESTACIONMODIFICO" )
+ column=(type=char(30) updatewhereclause=yes name=usuariomodifico dbname="LINEA.USUARIOMODIFICO" )
+ column=(type=datetime updatewhereclause=yes name=fechaelimino dbname="LINEA.FECHAELIMINO" )
+ column=(type=char(128) updatewhereclause=yes name=estacionelimino dbname="LINEA.ESTACIONELIMINO" )
+ column=(type=char(30) updatewhereclause=yes name=usuarioelimino dbname="LINEA.USUARIOELIMINO" )
+ column=(type=decimal(0) updatewhereclause=yes name=eliminado dbname="LINEA.ELIMINADO" )
+ retrieve="
+  SELECT SISTEM.LINEA.IDLINEA,   
+         SISTEM.LINEA.CODLINEA,   
+         SISTEM.LINEA.IDEMPRESA,   
+         SISTEM.LINEA.IDSUBLINEA,   
+         SISTEM.LINEA.CODSUBLINEA,   
+         SISTEM.LINEA.NOMBRE,   
+         SISTEM.LINEA.ESTADO,   
+         SISTEM.LINEA.FECHAREGISTRO,   
+         SISTEM.LINEA.ESTACIONREGISTRO,   
+         SISTEM.LINEA.USUARIOREGISTRO,   
+         SISTEM.LINEA.FECHAMODIFICO,   
+         SISTEM.LINEA.ESTACIONMODIFICO,   
+         SISTEM.LINEA.USUARIOMODIFICO,   
+         SISTEM.LINEA.FECHAELIMINO,   
+         SISTEM.LINEA.ESTACIONELIMINO,   
+         SISTEM.LINEA.USUARIOELIMINO,   
+         SISTEM.LINEA.ELIMINADO  
+    FROM SISTEM.LINEA  
+   WHERE ( SISTEM.LINEA.IDLINEA = COALESCE(:IdLinea, IDLINEA)  ) AND  
+         SISTEM.LINEA.ELIMINADO = 0               
+" arguments=(("IdLinea", number)) )
+ 
+groupbox(band=detail text="Auditor$$HEX1$$ed00$$ENDHEX$$a"border="6" color="33554432" x="9" y="424" height="396" width="2569"  name=gb_2  tag="No" visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="C$$HEX1$$f300$$ENDHEX$$digo de Linea:" border="0" color="33554432" x="37" y="64" height="56" width="471" html.valueishtml="0"  name=codlinea_t visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Nombre:" border="0" color="33554432" x="37" y="176" height="64" width="471" html.valueishtml="0"  name=nombre_t visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Estado:" border="0" color="33554432" x="37" y="312" height="64" width="471" html.valueishtml="0"  name=estado_t visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="5" color="33554432" x="521" y="64" height="64" width="261" format="[general]" html.valueishtml="0"  name=codlinea  tag="C$$HEX1$$f300$$ENDHEX$$digo" visible="1" edit.limit=10 edit.case=upper edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=10 border="5" color="33554432" x="526" y="176" height="64" width="2002" format="[general]" html.valueishtml="0"  name=nombre  tag="Nombre" visible="1" edit.limit=64 edit.case=upper edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="1" tabsequence=20 border="0" color="33554432" x="526" y="312" height="64" width="1783" format="[general]" html.valueishtml="0"  name=estado  tag="Estado" visible="1" radiobuttons.columns=2 radiobuttons.scale=no radiobuttons.threed=yes  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+column(band=detail id=14 alignment="2" tabsequence=32766 border="5" color="255" x="1989" y="556" height="64" width="562" format="[shortdate] [time]" html.valueishtml="0"  name=fechaelimino  tag="No" visible="1" editmask.mask="DD/MM/YYYY HH:MM:SS" editmask.focusrectangle=no  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=15 alignment="2" tabsequence=32766 border="5" color="255" x="1989" y="644" height="64" width="562" format="[general]" html.valueishtml="0"  name=estacionelimino  tag="No" visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=16 alignment="2" tabsequence=32766 border="5" color="255" x="1989" y="732" height="64" width="562" format="[general]" html.valueishtml="0"  name=usuarioelimino  tag="No" visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=13 alignment="2" tabsequence=32766 border="5" color="255" x="1129" y="732" height="64" width="562" format="[general]" html.valueishtml="0"  name=usuariomodifico  tag="No" visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=12 alignment="2" tabsequence=32766 border="5" color="255" x="1129" y="644" height="64" width="562" format="[general]" html.valueishtml="0"  name=estacionmodifico  tag="No" visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=11 alignment="2" tabsequence=32766 border="5" color="255" x="1129" y="556" height="64" width="562" format="[shortdate] [time]" html.valueishtml="0"  name=fechamodifico  tag="No" visible="1" editmask.mask="DD/MM/YYYY HH:MM:SS" editmask.focusrectangle=no  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=8 alignment="2" tabsequence=32766 border="5" color="255" x="274" y="556" height="64" width="562" format="[shortdate] [time]" html.valueishtml="0"  name=fecharegistro  tag="No" visible="1" editmask.mask="DD/MM/YYYY HH:MM:SS" editmask.focusrectangle=no  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=9 alignment="2" tabsequence=32766 border="5" color="255" x="274" y="644" height="64" width="562" format="[general]" html.valueishtml="0"  name=estacionregistro visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=10 alignment="2" tabsequence=32766 border="5" color="255" x="274" y="732" height="64" width="562" format="[general]" html.valueishtml="0"  name=usuarioregistro  tag="No" visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="Fecha:" border="0" color="33554432" x="873" y="556" height="64" width="238" html.valueishtml="0"  name=fechamodifico_t visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Fecha:" border="0" color="33554432" x="1733" y="556" height="64" width="238" html.valueishtml="0"  name=fechaelimino_t visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Estaci$$HEX1$$f300$$ENDHEX$$n:" border="0" color="33554432" x="873" y="644" height="64" width="238" html.valueishtml="0"  name=estacionmodifico_t visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Estaci$$HEX1$$f300$$ENDHEX$$n:" border="0" color="33554432" x="1733" y="644" height="64" width="238" html.valueishtml="0"  name=estacionelimino_t visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Usuario:" border="0" color="33554432" x="873" y="732" height="64" width="238" html.valueishtml="0"  name=usuariomodifico_t visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Usuario:" border="0" color="33554432" x="1733" y="732" height="64" width="238" html.valueishtml="0"  name=usuarioelimino_t visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="Registro" border="0" color="33554432" x="274" y="476" height="64" width="562" html.valueishtml="0"  name=t_1 visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Modificaci$$HEX1$$f300$$ENDHEX$$n" border="0" color="33554432" x="1129" y="476" height="64" width="562" html.valueishtml="0"  name=t_2 visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Eliminaci$$HEX1$$f300$$ENDHEX$$n" border="0" color="33554432" x="1989" y="476" height="64" width="562" html.valueishtml="0"  name=t_3 visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="Fecha:" border="0" color="33554432" x="18" y="556" height="64" width="238" html.valueishtml="0"  name=fecharegistro_t visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Estaci$$HEX1$$f300$$ENDHEX$$n:" border="0" color="33554432" x="18" y="644" height="64" width="238" html.valueishtml="0"  name=estacionregistro_t visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Usuario:" border="0" color="33554432" x="18" y="732" height="64" width="238" html.valueishtml="0"  name=usuarioregistro_t visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
